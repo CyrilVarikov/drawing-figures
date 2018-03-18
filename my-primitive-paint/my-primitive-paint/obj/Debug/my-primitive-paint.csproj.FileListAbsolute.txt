@@ -1,0 +1,13 @@
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\my-primitive-paint\bin\Debug\my-primitive-paint.exe.config
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\my-primitive-paint\bin\Debug\my-primitive-paint.exe
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\my-primitive-paint\bin\Debug\my-primitive-paint.pdb
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\my-primitive-paint\bin\Debug\de-IT\my-primitive-paint.resources.dll
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\my-primitive-paint\obj\Debug\my-primitive-paint.csprojResolveAssemblyReference.cache
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\my-primitive-paint\obj\Debug\my_primitive_paint.mainForm.resources
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\my-primitive-paint\obj\Debug\my_primitive_paint.Properties.Resources.resources
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\my-primitive-paint\obj\Debug\my_primitive_paint.mainForm.de-IT.resources
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\my-primitive-paint\obj\Debug\my-primitive-paint.csproj.GenerateResource.cache
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\my-primitive-paint\obj\Debug\my-primitive-paint.csproj.CoreCompileInputs.cache
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\my-primitive-paint\obj\Debug\de-IT\my-primitive-paint.resources.dll
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\my-primitive-paint\obj\Debug\my-primitive-paint.exe
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\my-primitive-paint\obj\Debug\my-primitive-paint.pdb
