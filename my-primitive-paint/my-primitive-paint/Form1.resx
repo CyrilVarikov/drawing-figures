@@ -122,7 +122,7 @@
     <value>0, 0</value>
   </data>
   <data name="pictrueDrawing.Size" type="System.Drawing.Size, System.Drawing">
-    <value>689, 524</value>
+    <value>777, 675</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="pictrueDrawing.TabIndex" type="System.Int32, mscorlib">
@@ -145,7 +145,7 @@
     <value>Popup</value>
   </data>
   <data name="drawButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>748, 240</value>
+    <value>794, 238</value>
   </data>
   <data name="drawButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>116, 67</value>
@@ -175,7 +175,7 @@
     <value>8, 16</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>916, 526</value>
+    <value>984, 680</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>my-paint</value>

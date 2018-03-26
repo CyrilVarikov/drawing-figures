@@ -7,17 +7,31 @@ using System.Threading.Tasks;
 
 namespace my_primitive_paint
 {
-    public class MainFigure
+    public abstract class MainFigure 
     {
-        public int x1, y1;
-        public int x2, y2;
-        public MainFigure(int x1, int y1, int x2, int y2)
+        public int x, y;
+        public int width, height;
+        public Point[] points;
+        public MainFigure(int x1, int y1, int width, int height) // elipse and rectrangle
         {
-            this.x1 = x1;
-            this.y1 = y1;
-            this.x2 = x2;
-            this.y2 = y2;
+            this.x = x1;
+            this.y = y1;
+            this.width = width;
+            this.height = height;
         }
 
+        public MainFigure(int x, int y, int width) //circle and square
+        {
+            this.x = x;
+            this.y = y;
+            this.width = width;
+        }
+
+        public MainFigure(Point[] points) //polygon
+        {
+            this.points = points;
+        }
+
+        public abstract void Draw(Graphics graphics);
     }
 }
