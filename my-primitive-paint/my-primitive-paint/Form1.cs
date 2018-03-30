@@ -17,8 +17,10 @@ namespace my_primitive_paint
             InitializeComponent();
         }
 
+        
         private void drawButton_Click(object sender, EventArgs e)
         {
+            
             Bitmap bmap = new Bitmap(pictrueDrawing.Height, pictrueDrawing.Width);
             Graphics graphics = Graphics.FromImage(bmap);
 
@@ -56,10 +58,10 @@ namespace my_primitive_paint
             //polygon.Draw(graphics);
             //  graphics.DrawPolygon(pen, points);
             List<MainFigure> Figures = new List<MainFigure>();
-            Figures.Add(new Square(4, Color.Aqua, new Point(30, 30), 100));
+            Figures.Add(new Square(4, Color.Aqua, new Point(30, 30), new Point(130,130)));
             Figures.Add(new Rectangle(3, Color.Black, new Point(150, 30), new Point(250, 90)));
             Figures.Add(new Ellipse(2, Color.Aquamarine, new Point(200, 110), new Point(350, 200)));
-            Figures.Add(new Circle(4, Color.Aqua, new Point(30, 200), 100)); 
+            Figures.Add(new Circle(4, Color.Aqua, new Point(30, 200), new Point(130, 130))); 
             Figures.Add(new Polygon(5, Color.Chocolate, points));
 
             ListOfFigures listOfFigures = new ListOfFigures(Figures);
@@ -68,5 +70,45 @@ namespace my_primitive_paint
             pictrueDrawing.Image = bmap;
 
         }
+
+        private MainFigure mainFigure;
+        private Fabric maker;
+
+        private void draw_Click(object sender, EventArgs e)
+        {
+            Bitmap bmap = new Bitmap(pictrueDrawing.Height, pictrueDrawing.Width);
+            Graphics graphics = Graphics.FromImage(bmap);
+
+            mainFigure = maker.FactoryMethod(4, Color.Aquamarine, 
+                new Point(Convert.ToInt32(tb_x1.Text, 10), Convert.ToInt32(tb_y1.Text)),
+                new Point(Convert.ToInt32(tb_x2.Text,10), Convert.ToInt32(tb_y2.Text)));
+            mainFigure.Draw(graphics);
+
+            pictrueDrawing.Image = bmap;
+        }
+
+        private void rb_square_CheckedChanged(object sender, EventArgs e)
+        {
+            maker = new SquareFabric();
+        }
+
+        private void rb_reactangle_CheckedChanged(object sender, EventArgs e)
+        {
+            maker = new RectangleFabric();
+        }
+
+        private void rb_ellipse_CheckedChanged(object sender, EventArgs e)
+        {
+            maker = new EllipseFabric();
+        }
+
+        private void rb_circle_CheckedChanged(object sender, EventArgs e)
+        {
+            maker = new CircleFabric();
+        }
+
+        
     }
+
+       
 }

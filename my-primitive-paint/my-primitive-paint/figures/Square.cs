@@ -9,19 +9,19 @@ namespace my_primitive_paint
 {
     public class Square : MainFigure 
     {
-        private Point point;
+        private Point topLeft;
         private int width;
-        public Square(float fatness, Color color, Point point, int width)
+        public Square(float fatness, Color color, Point topLeft, Point bottomRight)
         {
             this.color = color;
             this.fatness = fatness;
-            this.point = point;
-            this.width = width;
+            this.topLeft = topLeft;
+            this.width = bottomRight.X - topLeft.X;
         }
         public override void Draw(Graphics graphics) 
         {
             Pen pen = new Pen(color, fatness);
-            graphics.DrawRectangle(pen, point.X, point.Y, width, width);
+            graphics.DrawRectangle(pen, topLeft.X, topLeft.Y, width, width);
         }
 
 

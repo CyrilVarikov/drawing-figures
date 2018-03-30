@@ -9,19 +9,19 @@ namespace my_primitive_paint
 {
     public class Circle : MainFigure
     {
-        private Point point;
+        private Point topLeft;
         private int radius;
-        public Circle(float fatness, Color color, Point point, int radius)
+        public Circle(float fatness, Color color, Point topLeft, Point bottomRight)
         {
             this.color = color;
             this.fatness = fatness;
-            this.point = point;
-            this.radius = radius;
+            this.topLeft = topLeft;
+            this.radius = bottomRight.X - topLeft.X;
         }
         public override void Draw(Graphics graphics)
         {
             Pen pen = new Pen(color, fatness);
-            graphics.DrawEllipse(pen, point.X, point.Y, radius, radius);
+            graphics.DrawEllipse(pen, topLeft.X, topLeft.Y, radius, radius);
         }
     }
 }
