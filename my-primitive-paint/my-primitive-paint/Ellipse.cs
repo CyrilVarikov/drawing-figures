@@ -9,15 +9,19 @@ namespace my_primitive_paint
 {
     public class Ellipse : MainFigure
     {
-        private float fatness;
-        public Ellipse(float fatness, int x, int y, int width, int height) : base(x, y, width, height)
+        private Point topLeft, bottomRight;
+
+        public Ellipse(float fatness, Color color, Point topLeft, Point bottomRight)
         {
+            this.color = color;
             this.fatness = fatness;
+            this.topLeft = topLeft;
+            this.bottomRight = bottomRight;
         }
         public override void Draw(Graphics graphics)
         {
-            Pen pen = new Pen(Color.Yellow, fatness);
-            graphics.DrawEllipse(pen, x, y, width, height);
+            Pen pen = new Pen(color, fatness);
+            graphics.DrawEllipse(pen, topLeft.X, topLeft.Y, bottomRight.X - topLeft.X, bottomRight.Y - topLeft.Y);
         }
     }
 }

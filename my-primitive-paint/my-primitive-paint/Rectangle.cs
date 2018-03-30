@@ -9,15 +9,18 @@ namespace my_primitive_paint
 {
     public class Rectangle : MainFigure
     {
-        private float fatness;
-        public Rectangle(float fatness, int x, int y, int width, int height) : base(x, y, width, height)
+        private Point topLeft, bottomRight;
+        public Rectangle(float fatness, Color color, Point topLeft, Point bottomRight)
         {
+            this.color = color;
             this.fatness = fatness;
+            this.topLeft = topLeft;
+            this.bottomRight = bottomRight;
         }
         public override void Draw(Graphics graphics)
         {
-            Pen pen = new Pen(Color.Blue, fatness);
-            graphics.DrawRectangle(pen, x, y, width, height);
+            Pen pen = new Pen(color, fatness);
+            graphics.DrawRectangle(pen, topLeft.X, topLeft.Y, bottomRight.X - topLeft.X, bottomRight.Y - topLeft.Y);
         }
     }
 }

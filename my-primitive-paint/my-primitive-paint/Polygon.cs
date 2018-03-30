@@ -9,15 +9,17 @@ namespace my_primitive_paint
 {
     public class Polygon : MainFigure
     {
-        private float fatness;
-        public Polygon(float fatness, Point[] points) : base(points)
+        private Point[] points;
+        public Polygon(float fatness, Color color, Point[] points) 
         {
             this.fatness = fatness;
+            this.color = color;
+            this.points = points;
         }
 
         public override void Draw(Graphics graphics)
         {
-            Pen pen = new Pen(Color.Aquamarine, fatness);
+            Pen pen = new Pen(color, fatness);
             graphics.DrawPolygon(pen, points);
         }
     }

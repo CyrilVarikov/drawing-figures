@@ -21,27 +21,25 @@ namespace my_primitive_paint
         {
             Bitmap bmap = new Bitmap(pictrueDrawing.Height, pictrueDrawing.Width);
             Graphics graphics = Graphics.FromImage(bmap);
-          
-            //Square square = new Square(4, 30, 30, 100);
-           // square.Draw(graphics);
+
+            /*Square square = new Square(4, Color.Aqua, new Point(30,30), 100);
+            square.Draw(graphics);
+
+            Rectangle rectangle = new Rectangle(1, Color.Beige, new Point(150,150), new Point(150, 50));
+            rectangle.Draw(graphics);
+
+            Ellipse ellipse = new Ellipse(2, Color.Aquamarine, new Point(400,400), new Point(600,600));
+            ellipse.Draw(graphics);
+
+            Circle circle = new Circle(4, Color.Aqua, new Point(30, 700), 100);
+            circle.Draw(graphics);*/
             
-            //Rectangle rectangle = new Rectangle(4, 150, 150, 100, 50);
-            //rectangle.Draw(graphics);
-
-            //Ellipse ellipse = new Ellipse(2, 180, 180, 50, 100);
-            //ellipse.Draw(graphics);
-
-            //Circle circle = new Circle(3, 250, 250, 120);
-            //circle.Draw(graphics);
-
-            Point point;
-            int k = 5;
             
-            Point point1 = new Point(450, 30);
-            Point point2 = new Point(400, 130);
-            Point point3 = new Point(520, 90);
-            Point point4 = new Point(380, 90);
-            Point point5 = new Point(500, 130);
+            Point point1 = new Point(450, 50);
+            Point point2 = new Point(370, 150);
+            Point point3 = new Point(540, 100);
+            Point point4 = new Point(360, 100);
+            Point point5 = new Point(530, 150);
            // Point point6 = new Point(500, 30);
             Point[] points =
              {
@@ -53,21 +51,16 @@ namespace my_primitive_paint
              
              };
 
-           // for (int i = 0; i < 5; i++)
-           // {
-           //     point = new Point((i + 5) * 10, (i + 5 + 10) * 10);
-            //    points[i] = point;
-            //}
 
-            Polygon polygon = new Polygon(5, points);
-            polygon.Draw(graphics);
+            //Polygon polygon = new Polygon(5, Color.BurlyWood, points);
+            //polygon.Draw(graphics);
             //  graphics.DrawPolygon(pen, points);
             List<MainFigure> Figures = new List<MainFigure>();
-            Figures.Add(new Square(4, 30, 30, 100));
-            Figures.Add(new Rectangle(4, 150, 30, 100, 50));
-            Figures.Add(new Ellipse(2, 180, 180, 50, 100));
-            Figures.Add(new Circle(3, 250, 250, 120)); 
-            Figures.Add(new Polygon(5, points));
+            Figures.Add(new Square(4, Color.Aqua, new Point(30, 30), 100));
+            Figures.Add(new Rectangle(3, Color.Black, new Point(150, 30), new Point(250, 90)));
+            Figures.Add(new Ellipse(2, Color.Aquamarine, new Point(200, 110), new Point(350, 200)));
+            Figures.Add(new Circle(4, Color.Aqua, new Point(30, 200), 100)); 
+            Figures.Add(new Polygon(5, Color.Chocolate, points));
 
             ListOfFigures listOfFigures = new ListOfFigures(Figures);
             listOfFigures.Draw(graphics);
