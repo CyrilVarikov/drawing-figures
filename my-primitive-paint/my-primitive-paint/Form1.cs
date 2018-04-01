@@ -12,17 +12,20 @@ namespace my_primitive_paint
 {
     public partial class mainForm : Form
     {
+        public Bitmap bmap;
+        public Graphics graphics;
         public mainForm()
         {
             InitializeComponent();
+            bmap = new Bitmap(pictrueDrawing.Height, pictrueDrawing.Width);
+            graphics = Graphics.FromImage(bmap);
         }
 
         
         private void drawButton_Click(object sender, EventArgs e)
         {
             
-            Bitmap bmap = new Bitmap(pictrueDrawing.Height, pictrueDrawing.Width);
-            Graphics graphics = Graphics.FromImage(bmap);
+           
 
             /*Square square = new Square(4, Color.Aqua, new Point(30,30), 100);
             square.Draw(graphics);
@@ -74,17 +77,36 @@ namespace my_primitive_paint
         private MainFigure mainFigure;
         private Fabric maker;
 
+        private bool IsInt(string x1, string y1, string x2, string y2)
+        {
+            int res = 0;
+            if (Int32.TryParse(x1, out res) && Int32.TryParse(y1, out res) && Int32.TryParse(x2, out res) && Int32.TryParse(y2, out res))
+            {
+                return true;
+            }
+            return false;
+        }
+
         private void draw_Click(object sender, EventArgs e)
         {
-            Bitmap bmap = new Bitmap(pictrueDrawing.Height, pictrueDrawing.Width);
-            Graphics graphics = Graphics.FromImage(bmap);
 
-            mainFigure = maker.FactoryMethod(4, Color.Aquamarine, 
-                new Point(Convert.ToInt32(tb_x1.Text, 10), Convert.ToInt32(tb_y1.Text)),
-                new Point(Convert.ToInt32(tb_x2.Text,10), Convert.ToInt32(tb_y2.Text)));
-            mainFigure.Draw(graphics);
+            if (IsInt(tb_x1.Text, tb_y1.Text, tb_x2.Text, tb_y2.Text))
+            {
+                mainFigure = maker.FactoryMethod(4, Color.Aquamarine,
+                                new Point(Convert.ToInt32(tb_x1.Text, 10), Convert.ToInt32(tb_y1.Text)),
+                                new Point(Convert.ToInt32(tb_x2.Text, 10), Convert.ToInt32(tb_y2.Text)));
+                mainFigure.Draw(graphics);
 
-            pictrueDrawing.Image = bmap;
+
+                pictrueDrawing.Image = bmap;
+            } else
+            {
+                MessageBox.Show("Input correct coordinate", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+            
+
+            
         }
 
         private void rb_square_CheckedChanged(object sender, EventArgs e)
@@ -107,7 +129,11 @@ namespace my_primitive_paint
             maker = new CircleFabric();
         }
 
-        
+        private void btn_clear_Click(object sender, EventArgs e)
+        {
+            graphics.Clear(Color.White);
+            pictrueDrawing.Image = bmap;
+        }
     }
 
        

@@ -11,16 +11,13 @@ namespace my_primitive_paint
     {
         private Point topLeft, bottomRight;
 
-        public Ellipse(float fatness, Color color, Point topLeft, Point bottomRight)
+        public Ellipse(float fatness, Color color, Point topLeft, Point bottomRight) : base(fatness, color)
         {
-            this.color = color;
-            this.fatness = fatness;
             this.topLeft = topLeft;
             this.bottomRight = bottomRight;
         }
         public override void Draw(Graphics graphics)
         {
-            Pen pen = new Pen(color, fatness);
             graphics.DrawEllipse(pen, topLeft.X, topLeft.Y, bottomRight.X - topLeft.X, bottomRight.Y - topLeft.Y);
         }
     }

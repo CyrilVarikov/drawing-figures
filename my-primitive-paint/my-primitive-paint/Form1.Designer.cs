@@ -44,6 +44,7 @@
             this.rb_ellipse = new System.Windows.Forms.RadioButton();
             this.rb_circle = new System.Windows.Forms.RadioButton();
             this.draw = new System.Windows.Forms.Button();
+            this.btn_clear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictrueDrawing)).BeginInit();
             this.SuspendLayout();
             // 
@@ -145,11 +146,21 @@
             this.draw.UseVisualStyleBackColor = false;
             this.draw.Click += new System.EventHandler(this.draw_Click);
             // 
+            // btn_clear
+            // 
+            this.btn_clear.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            resources.ApplyResources(this.btn_clear, "btn_clear");
+            this.btn_clear.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_clear.Name = "btn_clear";
+            this.btn_clear.UseVisualStyleBackColor = false;
+            this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
+            // 
             // mainForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.Controls.Add(this.btn_clear);
             this.Controls.Add(this.draw);
             this.Controls.Add(this.rb_circle);
             this.Controls.Add(this.rb_ellipse);
@@ -189,6 +200,7 @@
         private System.Windows.Forms.RadioButton rb_ellipse;
         private System.Windows.Forms.RadioButton rb_circle;
         private System.Windows.Forms.Button draw;
+        private System.Windows.Forms.Button btn_clear;
     }
 }
 

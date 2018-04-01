@@ -11,8 +11,16 @@ namespace my_primitive_paint
     {
         public Color color;
         public float fatness;
-        
+        protected Pen pen;
 
-        public abstract void Draw(Graphics graphics);
+        public MainFigure(float fatness, Color color)
+        {
+            this.fatness = fatness;
+            this.color = color;
+            pen = new Pen(color, fatness);
+        }
+
+
+        public virtual void Draw(Graphics graphics) { }
     }
 }

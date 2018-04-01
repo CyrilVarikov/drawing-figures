@@ -11,16 +11,13 @@ namespace my_primitive_paint
     {
         private Point topLeft;
         private int width;
-        public Square(float fatness, Color color, Point topLeft, Point bottomRight)
+        public Square(float fatness, Color color, Point topLeft, Point bottomRight) : base(fatness, color)
         {
-            this.color = color;
-            this.fatness = fatness;
             this.topLeft = topLeft;
             this.width = bottomRight.X - topLeft.X;
         }
         public override void Draw(Graphics graphics) 
         {
-            Pen pen = new Pen(color, fatness);
             graphics.DrawRectangle(pen, topLeft.X, topLeft.Y, width, width);
         }
 
