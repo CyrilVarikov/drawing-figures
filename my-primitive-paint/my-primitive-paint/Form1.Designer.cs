@@ -177,6 +177,7 @@
             this.Controls.Add(this.drawButton);
             this.Controls.Add(this.pictrueDrawing);
             this.Name = "mainForm";
+            this.Load += new System.EventHandler(this.mainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictrueDrawing)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

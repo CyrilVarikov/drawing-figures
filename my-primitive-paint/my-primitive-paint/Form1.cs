@@ -84,13 +84,17 @@ namespace my_primitive_paint
             {
                 return true;
             }
+            
             return false;
         }
 
         private void draw_Click(object sender, EventArgs e)
         {
 
-            if (IsInt(tb_x1.Text, tb_y1.Text, tb_x2.Text, tb_y2.Text))
+            if (IsInt(tb_x1.Text, tb_y1.Text, tb_x2.Text, tb_y2.Text) && (rb_circle.Checked == true || rb_ellipse.Checked == true ||
+                rb_reactangle.Checked == true || rb_square.Checked == true) && ((Convert.ToInt32(tb_x1.Text, 10) < pictrueDrawing.Width) &&
+                (Convert.ToInt32(tb_y1.Text, 10) < pictrueDrawing.Height) && (Convert.ToInt32(tb_x2.Text, 10) < pictrueDrawing.Width) &&
+                (Convert.ToInt32(tb_y2.Text, 10) < pictrueDrawing.Height)))
             {
                 mainFigure = maker.FactoryMethod(4, Color.Aquamarine,
                                 new Point(Convert.ToInt32(tb_x1.Text, 10), Convert.ToInt32(tb_y1.Text)),
@@ -101,7 +105,8 @@ namespace my_primitive_paint
                 pictrueDrawing.Image = bmap;
             } else
             {
-                MessageBox.Show("Input correct coordinate", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                tb_x1.Text = tb_x2.Text = tb_y1.Text = tb_y2.Text = "";
+                MessageBox.Show("Invalid coordinate entered or no figure selected", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
             
@@ -133,6 +138,11 @@ namespace my_primitive_paint
         {
             graphics.Clear(Color.White);
             pictrueDrawing.Image = bmap;
+        }
+
+        private void mainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 
