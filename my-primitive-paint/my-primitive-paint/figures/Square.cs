@@ -9,12 +9,10 @@ namespace my_primitive_paint
 {
     public class Square : MainFigure 
     {
-        private Point topLeft;
         private int width;
-        public Square(float fatness, Color color, Point topLeft, Point bottomRight) : base(fatness, color)
+        public Square(float fatness, Color color, Point topLeft, Point bottomRight) : base(fatness, color, topLeft, bottomRight)
         {
-            this.topLeft = topLeft;
-            this.width = bottomRight.X - topLeft.X;
+            width = bottomRight.X - topLeft.X;
         }
         public override void Draw(Graphics graphics) 
         {

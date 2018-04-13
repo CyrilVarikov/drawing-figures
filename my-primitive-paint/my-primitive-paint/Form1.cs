@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace my_primitive_paint
 {
@@ -25,27 +22,11 @@ namespace my_primitive_paint
         private void drawButton_Click(object sender, EventArgs e)
         {
             
-           
-
-            /*Square square = new Square(4, Color.Aqua, new Point(30,30), 100);
-            square.Draw(graphics);
-
-            Rectangle rectangle = new Rectangle(1, Color.Beige, new Point(150,150), new Point(150, 50));
-            rectangle.Draw(graphics);
-
-            Ellipse ellipse = new Ellipse(2, Color.Aquamarine, new Point(400,400), new Point(600,600));
-            ellipse.Draw(graphics);
-
-            Circle circle = new Circle(4, Color.Aqua, new Point(30, 700), 100);
-            circle.Draw(graphics);*/
-            
-            
             Point point1 = new Point(450, 50);
             Point point2 = new Point(370, 150);
             Point point3 = new Point(540, 100);
             Point point4 = new Point(360, 100);
             Point point5 = new Point(530, 150);
-           // Point point6 = new Point(500, 30);
             Point[] points =
              {
                  point1,
@@ -56,10 +37,6 @@ namespace my_primitive_paint
              
              };
 
-
-            //Polygon polygon = new Polygon(5, Color.BurlyWood, points);
-            //polygon.Draw(graphics);
-            //  graphics.DrawPolygon(pen, points);
             List<MainFigure> Figures = new List<MainFigure>();
             Figures.Add(new Square(4, Color.Aqua, new Point(30, 30), new Point(130,130)));
             Figures.Add(new Rectangle(3, Color.Black, new Point(150, 30), new Point(250, 90)));
@@ -74,8 +51,9 @@ namespace my_primitive_paint
 
         }
 
-        private MainFigure mainFigure;
+        private MainFigure figure;
         private Fabric maker;
+        private List<MainFigure> drawnFigures = new List<MainFigure>();
 
         private bool IsInt(string x1, string y1, string x2, string y2)
         {
@@ -88,6 +66,9 @@ namespace my_primitive_paint
             return false;
         }
 
+        private const int fatness = 4;
+        private Color color = Color.Aquamarine;
+
         private void draw_Click(object sender, EventArgs e)
         {
 
@@ -96,11 +77,11 @@ namespace my_primitive_paint
                 (Convert.ToInt32(tb_y1.Text, 10) < pictrueDrawing.Height) && (Convert.ToInt32(tb_x2.Text, 10) < pictrueDrawing.Width) &&
                 (Convert.ToInt32(tb_y2.Text, 10) < pictrueDrawing.Height)))
             {
-                mainFigure = maker.FactoryMethod(4, Color.Aquamarine,
+                figure = maker.FactoryMethod(fatness, color,
                                 new Point(Convert.ToInt32(tb_x1.Text, 10), Convert.ToInt32(tb_y1.Text)),
                                 new Point(Convert.ToInt32(tb_x2.Text, 10), Convert.ToInt32(tb_y2.Text)));
-                mainFigure.Draw(graphics);
-
+                figure.Draw(graphics);
+                drawnFigures.Add(figure);
 
                 pictrueDrawing.Image = bmap;
             } else
@@ -140,8 +121,53 @@ namespace my_primitive_paint
             pictrueDrawing.Image = bmap;
         }
 
-        private void mainForm_Load(object sender, EventArgs e)
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+
+            saveFileDialog.InitialDirectory = ".";
+            saveFileDialog.RestoreDirectory = true;
+            saveFileDialog.FileName = "figures";
+            saveFileDialog.DefaultExt = ".json";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                StreamWriter stream = new StreamWriter(saveFileDialog.OpenFile());
+
+                var json = JsonConvert.SerializeObject(drawnFigures);
+
+                stream.Write(json);
+                stream.Close();
+
+            }
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            openFileDialog.InitialDirectory = "/files";
+            openFileDialog.RestoreDirectory = true;
+            openFileDialog.FileName = "figures";
+            openFileDialog.DefaultExt = ".json";
+
+             if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                StreamReader stream = new StreamReader(openFileDialog.OpenFile());
+
+                string json = stream.ReadToEnd();
+
+               // List<MainFigure> mainFigures = JsonConvert.DeserializeObject<List<MainFigure>>(json);
+
+                stream.Close();
+
+                //ListOfFigures listOfFigures = new ListOfFigures(mainFigures);
+               // listOfFigures.Draw(graphics);
+
+
+            }
+                   
 
         }
     }

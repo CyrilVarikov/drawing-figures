@@ -9,11 +9,8 @@ namespace my_primitive_paint
 {
     public class Polygon : MainFigure
     {
-        private Point[] points;
-        public Polygon(float fatness, Color color, Point[] points) : base(fatness, color)
-        {
-            this.points = points;
-        }
+        public Polygon(float fatness, Color color, Point[] points) : base(fatness, color, points) { }
+
 
         public override void Draw(Graphics graphics)
         {
