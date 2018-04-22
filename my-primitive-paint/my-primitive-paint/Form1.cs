@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using System.IO;
+//using System.Web.Script.Serialization;
 
 namespace my_primitive_paint
 {
@@ -53,7 +54,6 @@ namespace my_primitive_paint
 
         private MainFigure figure;
         private Fabric maker;
-        private List<MainFigure> drawnFigures = new List<MainFigure>();
 
         private bool IsInt(string x1, string y1, string x2, string y2)
         {
@@ -68,6 +68,7 @@ namespace my_primitive_paint
 
         private const int fatness = 4;
         private Color color = Color.Aquamarine;
+        private List<ForJSON> jsonList = new List<ForJSON>();
 
         private void draw_Click(object sender, EventArgs e)
         {
@@ -77,11 +78,13 @@ namespace my_primitive_paint
                 (Convert.ToInt32(tb_y1.Text, 10) < pictrueDrawing.Height) && (Convert.ToInt32(tb_x2.Text, 10) < pictrueDrawing.Width) &&
                 (Convert.ToInt32(tb_y2.Text, 10) < pictrueDrawing.Height)))
             {
-                figure = maker.FactoryMethod(fatness, color,
-                                new Point(Convert.ToInt32(tb_x1.Text, 10), Convert.ToInt32(tb_y1.Text)),
-                                new Point(Convert.ToInt32(tb_x2.Text, 10), Convert.ToInt32(tb_y2.Text)));
+                Point topLeft = new Point(Convert.ToInt32(tb_x1.Text, 10), Convert.ToInt32(tb_y1.Text));
+                Point bottomRight = new Point(Convert.ToInt32(tb_x2.Text, 10), Convert.ToInt32(tb_y2.Text));
+                figure = maker.FactoryMethod(fatness, color, topLeft, bottomRight);
+
                 figure.Draw(graphics);
-                drawnFigures.Add(figure);
+                jsonList.Add(new ForJSON() { fatness = fatness, color = color, topLeft = topLeft, bottomRight = bottomRight, fabric = maker.GetType()});
+                
 
                 pictrueDrawing.Image = bmap;
             } else
@@ -118,6 +121,7 @@ namespace my_primitive_paint
         private void btn_clear_Click(object sender, EventArgs e)
         {
             graphics.Clear(Color.White);
+            jsonList.Clear();
             pictrueDrawing.Image = bmap;
         }
 
@@ -135,10 +139,20 @@ namespace my_primitive_paint
             {
                 StreamWriter stream = new StreamWriter(saveFileDialog.OpenFile());
 
-                var json = JsonConvert.SerializeObject(drawnFigures);
-
-                stream.Write(json);
+                JsonSerializer serializer = new JsonSerializer();
+                using (JsonWriter writer = new JsonTextWriter(stream))
+                {
+                    for (int i = 0; i < jsonList.Count; i++)
+                    {
+                        serializer.Serialize(writer, jsonList[i]);
+                        if (i != jsonList.Count - 1)
+                            stream.Write('\n');
+                    }
+                }
                 stream.Close();
+
+
+
 
             }
         }
@@ -156,15 +170,30 @@ namespace my_primitive_paint
             {
                 StreamReader stream = new StreamReader(openFileDialog.OpenFile());
 
-                string json = stream.ReadToEnd();
+                string data = stream.ReadToEnd();
+                {
+                    string[] dataArray = data.Split('\n');
+                    foreach (string dataBlock in dataArray)
+                    {
+                        try
+                        {
+                            ForJSON jSON = JsonConvert.DeserializeObject<ForJSON>(dataBlock);
+                            jsonList.Add(jSON);
+                            Fabric factory = (Fabric)Activator.CreateInstance(jSON.fabric);
+                            figure = factory.FactoryMethod(jSON.fatness, jSON.color, jSON.topLeft, jSON.bottomRight);
+                            figure.Draw(graphics);
 
-               // List<MainFigure> mainFigures = JsonConvert.DeserializeObject<List<MainFigure>>(json);
+                            pictrueDrawing.Image = bmap;
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Some figure is not valid...", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            continue;
+                        }
 
+                    }
+                }
                 stream.Close();
-
-                //ListOfFigures listOfFigures = new ListOfFigures(mainFigures);
-               // listOfFigures.Draw(graphics);
-
 
             }
                    

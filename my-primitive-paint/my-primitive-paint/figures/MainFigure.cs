@@ -1,34 +1,26 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Drawing;
-
-
-
+using System.Web.Script.Serialization;
 
 namespace my_primitive_paint
 {
 
     public abstract class MainFigure 
     {
-        [JsonProperty]
+
         public Color color;
    
-        [JsonProperty]
         public float fatness;
-
-        [NonSerializedAttribute]
         public Pen pen;
 
-        [JsonProperty]
         public Point topLeft;
-
-        [JsonProperty]
+  
         public Point bottomRight;
 
-        [NonSerializedAttribute]
         public Point[] points;
 
-        [JsonConstructor]
+
         public MainFigure(float fatness, Color color, Point topLeft, Point bottomRight)
         {
             this.fatness = fatness;

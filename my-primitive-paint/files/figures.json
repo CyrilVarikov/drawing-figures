@@ -1,1 +1,2 @@
-[]
+{"fatness":8,"color":"Red","topLeft":"155, 155","bottomRight":"400, 400","fabric":"my_primitive_paint.RectangleFabric, my-primitive-paint, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"}
+{"fatness":4,"color":"Aquamarine","topLeft":"55, 55","bottomRight":"155, 155","fabric":"my_primitive_paint.SquareFabric, my-primitive-paint, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"}
