@@ -50,6 +50,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CircleFabric.cs" />
+    <Compile Include="EditDrawedFigures.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditDrawedFigures.Designer.cs">
+      <DependentUpon>EditDrawedFigures.cs</DependentUpon>
+    </Compile>
     <Compile Include="EllipseFabric.cs" />
     <Compile Include="Fabric.cs" />
     <Compile Include="figures\Circle.cs" />
@@ -70,6 +76,9 @@
     <Compile Include="figures\Square.cs" />
     <Compile Include="RectangleFabric.cs" />
     <Compile Include="SquareFabric.cs" />
+    <EmbeddedResource Include="EditDrawedFigures.resx">
+      <DependentUpon>EditDrawedFigures.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.de-IT.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

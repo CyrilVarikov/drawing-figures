@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
-            this.pictrueDrawing = new System.Windows.Forms.PictureBox();
+            this.pictrue = new System.Windows.Forms.PictureBox();
             this.drawButton = new System.Windows.Forms.Button();
             this.tb_x1 = new System.Windows.Forms.TextBox();
             this.tb_y1 = new System.Windows.Forms.TextBox();
@@ -50,16 +50,16 @@
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.pictrueDrawing)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictrue)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pictrueDrawing
+            // pictrue
             // 
-            this.pictrueDrawing.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            resources.ApplyResources(this.pictrueDrawing, "pictrueDrawing");
-            this.pictrueDrawing.Name = "pictrueDrawing";
-            this.pictrueDrawing.TabStop = false;
+            this.pictrue.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            resources.ApplyResources(this.pictrue, "pictrue");
+            this.pictrue.Name = "pictrue";
+            this.pictrue.TabStop = false;
             // 
             // drawButton
             // 
@@ -182,25 +182,25 @@
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             resources.ApplyResources(this.openToolStripMenuItem, "openToolStripMenuItem");
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click_1);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             resources.ApplyResources(this.saveToolStripMenuItem, "saveToolStripMenuItem");
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click_1);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             resources.ApplyResources(this.editToolStripMenuItem, "editToolStripMenuItem");
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click_1);
             // 
             // mainForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.btn_clear);
             this.Controls.Add(this.draw);
             this.Controls.Add(this.rb_circle);
@@ -216,10 +216,10 @@
             this.Controls.Add(this.tb_y1);
             this.Controls.Add(this.tb_x1);
             this.Controls.Add(this.drawButton);
-            this.Controls.Add(this.pictrueDrawing);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.pictrue);
+            this.Controls.Add(this.menuStrip1);
             this.Name = "mainForm";
-            ((System.ComponentModel.ISupportInitialize)(this.pictrueDrawing)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictrue)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -229,7 +229,7 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictrueDrawing;
+        private System.Windows.Forms.PictureBox pictrue;
         private System.Windows.Forms.Button drawButton;
         private System.Windows.Forms.TextBox tb_x1;
         private System.Windows.Forms.TextBox tb_y1;

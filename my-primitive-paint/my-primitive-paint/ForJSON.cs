@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace my_primitive_paint
 {
-    class ForJSON
+    public class ForJSON
     {
         public int fatness;
         public Color color;

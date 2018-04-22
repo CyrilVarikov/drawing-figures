@@ -4,7 +4,6 @@ using System.Drawing;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using System.IO;
-//using System.Web.Script.Serialization;
 
 namespace my_primitive_paint
 {
@@ -15,7 +14,7 @@ namespace my_primitive_paint
         public mainForm()
         {
             InitializeComponent();
-            bmap = new Bitmap(pictrueDrawing.Height, pictrueDrawing.Width);
+            bmap = new Bitmap(pictrue.Height, pictrue.Width);
             graphics = Graphics.FromImage(bmap);
         }
 
@@ -48,7 +47,7 @@ namespace my_primitive_paint
             ListOfFigures listOfFigures = new ListOfFigures(Figures);
             listOfFigures.Draw(graphics);
 
-            pictrueDrawing.Image = bmap;
+            pictrue.Image = bmap;
 
         }
 
@@ -74,9 +73,9 @@ namespace my_primitive_paint
         {
 
             if (IsInt(tb_x1.Text, tb_y1.Text, tb_x2.Text, tb_y2.Text) && (rb_circle.Checked == true || rb_ellipse.Checked == true ||
-                rb_reactangle.Checked == true || rb_square.Checked == true) && ((Convert.ToInt32(tb_x1.Text, 10) < pictrueDrawing.Width) &&
-                (Convert.ToInt32(tb_y1.Text, 10) < pictrueDrawing.Height) && (Convert.ToInt32(tb_x2.Text, 10) < pictrueDrawing.Width) &&
-                (Convert.ToInt32(tb_y2.Text, 10) < pictrueDrawing.Height)))
+                rb_reactangle.Checked == true || rb_square.Checked == true) && ((Convert.ToInt32(tb_x1.Text, 10) < pictrue.Width) &&
+                (Convert.ToInt32(tb_y1.Text, 10) < pictrue.Height) && (Convert.ToInt32(tb_x2.Text, 10) < pictrue.Width) &&
+                (Convert.ToInt32(tb_y2.Text, 10) < pictrue.Height)))
             {
                 Point topLeft = new Point(Convert.ToInt32(tb_x1.Text, 10), Convert.ToInt32(tb_y1.Text));
                 Point bottomRight = new Point(Convert.ToInt32(tb_x2.Text, 10), Convert.ToInt32(tb_y2.Text));
@@ -86,7 +85,7 @@ namespace my_primitive_paint
                 jsonList.Add(new ForJSON() { fatness = fatness, color = color, topLeft = topLeft, bottomRight = bottomRight, fabric = maker.GetType()});
                 
 
-                pictrueDrawing.Image = bmap;
+                pictrue.Image = bmap;
             } else
             {
                 tb_x1.Text = tb_x2.Text = tb_y1.Text = tb_y2.Text = "";
@@ -122,11 +121,76 @@ namespace my_primitive_paint
         {
             graphics.Clear(Color.White);
             jsonList.Clear();
-            pictrueDrawing.Image = bmap;
+            pictrue.Image = bmap;
         }
 
+     
+        private void openToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
 
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+            openFileDialog.InitialDirectory = "/files";
+            openFileDialog.RestoreDirectory = true;
+            openFileDialog.FileName = "figures";
+            openFileDialog.DefaultExt = ".json";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                StreamReader stream = new StreamReader(openFileDialog.OpenFile());
+
+                string data = stream.ReadToEnd();
+                {
+                    string[] dataArray = data.Split('\n');
+                    foreach (string dataBlock in dataArray)
+                    {
+                        try
+                        {
+                            ForJSON jSON = JsonConvert.DeserializeObject<ForJSON>(dataBlock);
+                            jsonList.Add(jSON);
+                            Fabric factory = (Fabric)Activator.CreateInstance(jSON.fabric);
+                            figure = factory.FactoryMethod(jSON.fatness, jSON.color, jSON.topLeft, jSON.bottomRight);
+                            figure.Draw(graphics);
+
+                            pictrue.Image = bmap;
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Some figure is not valid...", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            continue;
+                        }
+
+                    }
+                }
+                stream.Close();
+
+            }
+        }
+
+        private void editToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            openFileDialog.InitialDirectory = "/files";
+            openFileDialog.RestoreDirectory = true;
+            openFileDialog.FileName = "figures";
+            openFileDialog.DefaultExt = ".json";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                StreamReader stream = new StreamReader(openFileDialog.OpenFile());
+
+                string data = stream.ReadToEnd();
+
+                string[] dataArray = data.Split('\n');
+
+                stream.Close();
+                EditDrawedFigures edit = new EditDrawedFigures(dataArray);
+                edit.Show();
+
+            }
+        }
+
+        private void saveToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
 
@@ -150,54 +214,7 @@ namespace my_primitive_paint
                     }
                 }
                 stream.Close();
-
-
-
-
             }
-        }
-
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-
-            openFileDialog.InitialDirectory = "/files";
-            openFileDialog.RestoreDirectory = true;
-            openFileDialog.FileName = "figures";
-            openFileDialog.DefaultExt = ".json";
-
-             if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                StreamReader stream = new StreamReader(openFileDialog.OpenFile());
-
-                string data = stream.ReadToEnd();
-                {
-                    string[] dataArray = data.Split('\n');
-                    foreach (string dataBlock in dataArray)
-                    {
-                        try
-                        {
-                            ForJSON jSON = JsonConvert.DeserializeObject<ForJSON>(dataBlock);
-                            jsonList.Add(jSON);
-                            Fabric factory = (Fabric)Activator.CreateInstance(jSON.fabric);
-                            figure = factory.FactoryMethod(jSON.fatness, jSON.color, jSON.topLeft, jSON.bottomRight);
-                            figure.Draw(graphics);
-
-                            pictrueDrawing.Image = bmap;
-                        }
-                        catch
-                        {
-                            MessageBox.Show("Some figure is not valid...", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            continue;
-                        }
-
-                    }
-                }
-                stream.Close();
-
-            }
-                   
-
         }
     }
 
