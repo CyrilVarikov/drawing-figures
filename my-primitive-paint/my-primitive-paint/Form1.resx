@@ -117,39 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pictrue.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 31</value>
-  </data>
-  <data name="pictrue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>968, 637</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="pictrue.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;pictrue.Name" xml:space="preserve">
-    <value>pictrue</value>
-  </data>
-  <data name="&gt;&gt;pictrue.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictrue.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;pictrue.ZOrder" xml:space="preserve">
-    <value>15</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="drawButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Popup</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="drawButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1057, 428</value>
+    <value>1029, 626</value>
   </data>
   <data name="drawButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>106, 42</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="drawButton.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
@@ -166,7 +145,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;drawButton.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>15</value>
   </data>
   <data name="tb_x1.Location" type="System.Drawing.Point, System.Drawing">
     <value>1005, 80</value>
@@ -187,7 +166,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tb_x1.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="tb_y1.Location" type="System.Drawing.Point, System.Drawing">
     <value>1005, 142</value>
@@ -208,7 +187,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tb_y1.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="tb_y2.Location" type="System.Drawing.Point, System.Drawing">
     <value>1083, 142</value>
@@ -229,7 +208,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tb_y2.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="tb_x2.Location" type="System.Drawing.Point, System.Drawing">
     <value>1083, 80</value>
@@ -250,7 +229,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tb_x2.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="lbl_for_y2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -277,7 +256,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_for_y2.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="lbl_for_x2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -304,7 +283,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_for_x2.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="lbl_for_y1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -331,7 +310,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_for_y1.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="lbl_for_x1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -358,7 +337,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_for_x1.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="rb_square.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -388,7 +367,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rb_square.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="rb_reactangle.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -418,7 +397,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rb_reactangle.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="rb_ellipse.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -445,7 +424,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rb_ellipse.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="rb_circle.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -472,13 +451,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rb_circle.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="draw.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Popup</value>
   </data>
   <data name="draw.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1113, 293</value>
+    <value>1130, 277</value>
   </data>
   <data name="draw.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -499,13 +478,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;draw.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="btn_clear.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Popup</value>
   </data>
   <data name="btn_clear.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1057, 361</value>
+    <value>1029, 559</value>
   </data>
   <data name="btn_clear.Size" type="System.Drawing.Size, System.Drawing">
     <value>106, 39</value>
@@ -526,35 +505,11 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_clear.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="openToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 26</value>
-  </data>
-  <data name="openToolStripMenuItem.Text" xml:space="preserve">
-    <value>Open</value>
-  </data>
-  <data name="saveToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 26</value>
-  </data>
-  <data name="saveToolStripMenuItem.Text" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="editToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 26</value>
-  </data>
-  <data name="editToolStripMenuItem.Text" xml:space="preserve">
-    <value>Edit</value>
-  </data>
-  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 24</value>
-  </data>
-  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
-    <value>File</value>
-  </data>
   <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -578,6 +533,51 @@
   </data>
   <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
     <value>16</value>
+  </data>
+  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 24</value>
+  </data>
+  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="openToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 26</value>
+  </data>
+  <data name="openToolStripMenuItem.Text" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="saveToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 26</value>
+  </data>
+  <data name="saveToolStripMenuItem.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="editToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 26</value>
+  </data>
+  <data name="editToolStripMenuItem.Text" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="picture.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 31</value>
+  </data>
+  <data name="picture.Size" type="System.Drawing.Size, System.Drawing">
+    <value>958, 663</value>
+  </data>
+  <data name="picture.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;picture.Name" xml:space="preserve">
+    <value>picture</value>
+  </data>
+  <data name="&gt;&gt;picture.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;picture.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;picture.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

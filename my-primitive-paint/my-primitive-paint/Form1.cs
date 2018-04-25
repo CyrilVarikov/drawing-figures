@@ -4,6 +4,9 @@ using System.Drawing;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using System.IO;
+using PluginInterface;
+using System.Reflection;
+using System.Linq;
 
 namespace my_primitive_paint
 {
@@ -14,11 +17,57 @@ namespace my_primitive_paint
         public mainForm()
         {
             InitializeComponent();
-            bmap = new Bitmap(pictrue.Height, pictrue.Width);
+
+            bmap = new Bitmap(picture.Width, picture.Height);
             graphics = Graphics.FromImage(bmap);
+
+            RefreshPlugins();
+
+            foreach (var plugin in plugins)
+            {
+                RadioButton rb =  plugin.addRb();
+                this.Controls.Add(rb);
+            }
+
+            
         }
 
-        
+        private readonly string pluginPath = System.IO.Path.Combine(
+                                                Directory.GetCurrentDirectory(),
+                                                "Plugins");
+
+        private List<IPlugin> pluginsFeatures = new List<IPlugin>();
+
+        private void RefreshPlugins()
+        {
+            pluginsFeatures.Clear();
+
+            DirectoryInfo pluginDirectory = new DirectoryInfo(pluginPath);
+            if (!pluginDirectory.Exists)
+                pluginDirectory.Create();
+
+            //берем из директории все файлы с расширением .dll      
+            var pluginFiles = Directory.GetFiles(pluginPath, "*.dll");
+            foreach (var file in pluginFiles)
+            {
+                //загружаем сборку
+                Assembly asm = Assembly.LoadFrom(file);
+                //ищем типы, имплементирующие наш интерфейс IPlugin,
+                //чтобы не захватить лишнего
+                var types = asm.GetTypes().
+                                Where(t => t.GetInterfaces().
+                                Where(i => i.FullName == typeof(IPlugin).FullName).Any());
+
+                //заполняем экземплярами полученных типов коллекцию плагинов
+                foreach (var type in types)
+                {
+                    var plugin = asm.CreateInstance(type.FullName) as IPlugin;
+                    pluginsFeatures.Add(plugin);
+                }
+            }
+        }
+
+
         private void drawButton_Click(object sender, EventArgs e)
         {
             
@@ -47,12 +96,12 @@ namespace my_primitive_paint
             ListOfFigures listOfFigures = new ListOfFigures(Figures);
             listOfFigures.Draw(graphics);
 
-            pictrue.Image = bmap;
+            picture.Image = bmap;
 
         }
 
         private MainFigure figure;
-        private Fabric maker;
+        public Fabric maker;
 
         private bool IsInt(string x1, string y1, string x2, string y2)
         {
@@ -71,11 +120,13 @@ namespace my_primitive_paint
 
         private void draw_Click(object sender, EventArgs e)
         {
+     
+
 
             if (IsInt(tb_x1.Text, tb_y1.Text, tb_x2.Text, tb_y2.Text) && (rb_circle.Checked == true || rb_ellipse.Checked == true ||
-                rb_reactangle.Checked == true || rb_square.Checked == true) && ((Convert.ToInt32(tb_x1.Text, 10) < pictrue.Width) &&
-                (Convert.ToInt32(tb_y1.Text, 10) < pictrue.Height) && (Convert.ToInt32(tb_x2.Text, 10) < pictrue.Width) &&
-                (Convert.ToInt32(tb_y2.Text, 10) < pictrue.Height)))
+                rb_reactangle.Checked == true || rb_square.Checked == true) && ((Convert.ToInt32(tb_x1.Text, 10) < picture.Width) &&
+                (Convert.ToInt32(tb_y1.Text, 10) < picture.Height) && (Convert.ToInt32(tb_x2.Text, 10) < picture.Width) &&
+                (Convert.ToInt32(tb_y2.Text, 10) < picture.Height)))
             {
                 Point topLeft = new Point(Convert.ToInt32(tb_x1.Text, 10), Convert.ToInt32(tb_y1.Text));
                 Point bottomRight = new Point(Convert.ToInt32(tb_x2.Text, 10), Convert.ToInt32(tb_y2.Text));
@@ -85,7 +136,7 @@ namespace my_primitive_paint
                 jsonList.Add(new ForJSON() { fatness = fatness, color = color, topLeft = topLeft, bottomRight = bottomRight, fabric = maker.GetType()});
                 
 
-                pictrue.Image = bmap;
+                picture.Image = bmap;
             } else
             {
                 tb_x1.Text = tb_x2.Text = tb_y1.Text = tb_y2.Text = "";
@@ -121,7 +172,7 @@ namespace my_primitive_paint
         {
             graphics.Clear(Color.White);
             jsonList.Clear();
-            pictrue.Image = bmap;
+            picture.Image = bmap;
         }
 
      
@@ -151,7 +202,7 @@ namespace my_primitive_paint
                             figure = factory.FactoryMethod(jSON.fatness, jSON.color, jSON.topLeft, jSON.bottomRight);
                             figure.Draw(graphics);
 
-                            pictrue.Image = bmap;
+                            picture.Image = bmap;
                         }
                         catch
                         {
@@ -216,6 +267,8 @@ namespace my_primitive_paint
                 stream.Close();
             }
         }
+
+    
     }
 
        

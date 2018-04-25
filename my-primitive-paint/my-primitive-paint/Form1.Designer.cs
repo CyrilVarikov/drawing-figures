@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
-            this.pictrue = new System.Windows.Forms.PictureBox();
             this.drawButton = new System.Windows.Forms.Button();
             this.tb_x1 = new System.Windows.Forms.TextBox();
             this.tb_y1 = new System.Windows.Forms.TextBox();
@@ -50,16 +49,10 @@
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.pictrue)).BeginInit();
+            this.picture = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picture)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictrue
-            // 
-            this.pictrue.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            resources.ApplyResources(this.pictrue, "pictrue");
-            this.pictrue.Name = "pictrue";
-            this.pictrue.TabStop = false;
             // 
             // drawButton
             // 
@@ -196,11 +189,19 @@
             resources.ApplyResources(this.editToolStripMenuItem, "editToolStripMenuItem");
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click_1);
             // 
+            // picture
+            // 
+            this.picture.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            resources.ApplyResources(this.picture, "picture");
+            this.picture.Name = "picture";
+            this.picture.TabStop = false;
+            // 
             // mainForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.Controls.Add(this.picture);
             this.Controls.Add(this.btn_clear);
             this.Controls.Add(this.draw);
             this.Controls.Add(this.rb_circle);
@@ -216,20 +217,17 @@
             this.Controls.Add(this.tb_y1);
             this.Controls.Add(this.tb_x1);
             this.Controls.Add(this.drawButton);
-            this.Controls.Add(this.pictrue);
             this.Controls.Add(this.menuStrip1);
             this.Name = "mainForm";
-            ((System.ComponentModel.ISupportInitialize)(this.pictrue)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictrue;
         private System.Windows.Forms.Button drawButton;
         private System.Windows.Forms.TextBox tb_x1;
         private System.Windows.Forms.TextBox tb_y1;
@@ -250,6 +248,7 @@
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.PictureBox picture;
     }
 }
 
