@@ -38,10 +38,6 @@
             this.lbl_for_x2 = new System.Windows.Forms.Label();
             this.lbl_for_y1 = new System.Windows.Forms.Label();
             this.lbl_for_x1 = new System.Windows.Forms.Label();
-            this.rb_square = new System.Windows.Forms.RadioButton();
-            this.rb_reactangle = new System.Windows.Forms.RadioButton();
-            this.rb_ellipse = new System.Windows.Forms.RadioButton();
-            this.rb_circle = new System.Windows.Forms.RadioButton();
             this.draw = new System.Windows.Forms.Button();
             this.btn_clear = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -50,6 +46,7 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.picture = new System.Windows.Forms.PictureBox();
+            this.cb_figures = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture)).BeginInit();
             this.SuspendLayout();
@@ -103,38 +100,6 @@
             // 
             resources.ApplyResources(this.lbl_for_x1, "lbl_for_x1");
             this.lbl_for_x1.Name = "lbl_for_x1";
-            // 
-            // rb_square
-            // 
-            resources.ApplyResources(this.rb_square, "rb_square");
-            this.rb_square.Name = "rb_square";
-            this.rb_square.TabStop = true;
-            this.rb_square.UseVisualStyleBackColor = true;
-            this.rb_square.CheckedChanged += new System.EventHandler(this.rb_square_CheckedChanged);
-            // 
-            // rb_reactangle
-            // 
-            resources.ApplyResources(this.rb_reactangle, "rb_reactangle");
-            this.rb_reactangle.Name = "rb_reactangle";
-            this.rb_reactangle.TabStop = true;
-            this.rb_reactangle.UseVisualStyleBackColor = true;
-            this.rb_reactangle.CheckedChanged += new System.EventHandler(this.rb_reactangle_CheckedChanged);
-            // 
-            // rb_ellipse
-            // 
-            resources.ApplyResources(this.rb_ellipse, "rb_ellipse");
-            this.rb_ellipse.Name = "rb_ellipse";
-            this.rb_ellipse.TabStop = true;
-            this.rb_ellipse.UseVisualStyleBackColor = true;
-            this.rb_ellipse.CheckedChanged += new System.EventHandler(this.rb_ellipse_CheckedChanged);
-            // 
-            // rb_circle
-            // 
-            resources.ApplyResources(this.rb_circle, "rb_circle");
-            this.rb_circle.Name = "rb_circle";
-            this.rb_circle.TabStop = true;
-            this.rb_circle.UseVisualStyleBackColor = true;
-            this.rb_circle.CheckedChanged += new System.EventHandler(this.rb_circle_CheckedChanged);
             // 
             // draw
             // 
@@ -196,18 +161,27 @@
             this.picture.Name = "picture";
             this.picture.TabStop = false;
             // 
+            // cb_figures
+            // 
+            this.cb_figures.FormattingEnabled = true;
+            this.cb_figures.Items.AddRange(new object[] {
+            resources.GetString("cb_figures.Items"),
+            resources.GetString("cb_figures.Items1"),
+            resources.GetString("cb_figures.Items2"),
+            resources.GetString("cb_figures.Items3")});
+            resources.ApplyResources(this.cb_figures, "cb_figures");
+            this.cb_figures.Name = "cb_figures";
+            this.cb_figures.SelectionChangeCommitted += new System.EventHandler(this.cb_figures_SelectionChangeCommitted);
+            // 
             // mainForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.Controls.Add(this.cb_figures);
             this.Controls.Add(this.picture);
             this.Controls.Add(this.btn_clear);
             this.Controls.Add(this.draw);
-            this.Controls.Add(this.rb_circle);
-            this.Controls.Add(this.rb_ellipse);
-            this.Controls.Add(this.rb_reactangle);
-            this.Controls.Add(this.rb_square);
             this.Controls.Add(this.lbl_for_x1);
             this.Controls.Add(this.lbl_for_y1);
             this.Controls.Add(this.lbl_for_x2);
@@ -237,10 +211,6 @@
         private System.Windows.Forms.Label lbl_for_x2;
         private System.Windows.Forms.Label lbl_for_y1;
         private System.Windows.Forms.Label lbl_for_x1;
-        private System.Windows.Forms.RadioButton rb_square;
-        private System.Windows.Forms.RadioButton rb_reactangle;
-        private System.Windows.Forms.RadioButton rb_ellipse;
-        private System.Windows.Forms.RadioButton rb_circle;
         private System.Windows.Forms.Button draw;
         private System.Windows.Forms.Button btn_clear;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -249,6 +219,7 @@
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.PictureBox picture;
+        private System.Windows.Forms.ComboBox cb_figures;
     }
 }
 

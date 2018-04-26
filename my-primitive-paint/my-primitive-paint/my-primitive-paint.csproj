@@ -35,6 +35,10 @@
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PluginInterfase, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PluginInterfase\bin\Debug\PluginInterfase.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Extensions" />
@@ -109,9 +113,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\PluginInterface.csproj">
-      <Project>{d083304b-dd42-45fe-8e09-1ed279fbbdd8}</Project>
-      <Name>PluginInterface</Name>
+    <ProjectReference Include="..\FabricModule\FabricModule.csproj">
+      <Project>{FC1504B9-1229-4B30-9200-4E94939BBC01}</Project>
+      <Name>FabricModule</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

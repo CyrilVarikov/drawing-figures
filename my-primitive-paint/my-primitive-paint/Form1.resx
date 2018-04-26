@@ -123,7 +123,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="drawButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1029, 626</value>
+    <value>1020, 432</value>
   </data>
   <data name="drawButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>106, 42</value>
@@ -145,7 +145,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;drawButton.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>12</value>
   </data>
   <data name="tb_x1.Location" type="System.Drawing.Point, System.Drawing">
     <value>1005, 80</value>
@@ -166,7 +166,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tb_x1.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>11</value>
   </data>
   <data name="tb_y1.Location" type="System.Drawing.Point, System.Drawing">
     <value>1005, 142</value>
@@ -187,7 +187,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tb_y1.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>10</value>
   </data>
   <data name="tb_y2.Location" type="System.Drawing.Point, System.Drawing">
     <value>1083, 142</value>
@@ -208,7 +208,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tb_y2.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>9</value>
   </data>
   <data name="tb_x2.Location" type="System.Drawing.Point, System.Drawing">
     <value>1083, 80</value>
@@ -229,7 +229,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tb_x2.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>8</value>
   </data>
   <data name="lbl_for_y2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -256,7 +256,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_for_y2.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>7</value>
   </data>
   <data name="lbl_for_x2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -283,7 +283,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_for_x2.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>6</value>
   </data>
   <data name="lbl_for_y1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -310,7 +310,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_for_y1.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>5</value>
   </data>
   <data name="lbl_for_x1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -337,127 +337,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_for_x1.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="rb_square.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="rb_square.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="rb_square.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1005, 212</value>
-  </data>
-  <data name="rb_square.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 21</value>
-  </data>
-  <data name="rb_square.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="rb_square.Text" xml:space="preserve">
-    <value>Квадрат</value>
-  </data>
-  <data name="&gt;&gt;rb_square.Name" xml:space="preserve">
-    <value>rb_square</value>
-  </data>
-  <data name="&gt;&gt;rb_square.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rb_square.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;rb_square.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="rb_reactangle.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="rb_reactangle.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="rb_reactangle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1005, 239</value>
-  </data>
-  <data name="rb_reactangle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 21</value>
-  </data>
-  <data name="rb_reactangle.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="rb_reactangle.Text" xml:space="preserve">
-    <value>Прямоугольник</value>
-  </data>
-  <data name="&gt;&gt;rb_reactangle.Name" xml:space="preserve">
-    <value>rb_reactangle</value>
-  </data>
-  <data name="&gt;&gt;rb_reactangle.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rb_reactangle.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;rb_reactangle.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="rb_ellipse.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="rb_ellipse.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1005, 266</value>
-  </data>
-  <data name="rb_ellipse.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 21</value>
-  </data>
-  <data name="rb_ellipse.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="rb_ellipse.Text" xml:space="preserve">
-    <value>Элипс</value>
-  </data>
-  <data name="&gt;&gt;rb_ellipse.Name" xml:space="preserve">
-    <value>rb_ellipse</value>
-  </data>
-  <data name="&gt;&gt;rb_ellipse.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rb_ellipse.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;rb_ellipse.ZOrder" xml:space="preserve">
     <value>4</value>
-  </data>
-  <data name="rb_circle.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="rb_circle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1005, 293</value>
-  </data>
-  <data name="rb_circle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 21</value>
-  </data>
-  <data name="rb_circle.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="rb_circle.Text" xml:space="preserve">
-    <value>Круг</value>
-  </data>
-  <data name="&gt;&gt;rb_circle.Name" xml:space="preserve">
-    <value>rb_circle</value>
-  </data>
-  <data name="&gt;&gt;rb_circle.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rb_circle.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;rb_circle.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="draw.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Popup</value>
   </data>
   <data name="draw.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1130, 277</value>
+    <value>1132, 192</value>
   </data>
   <data name="draw.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -478,13 +364,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;draw.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="btn_clear.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Popup</value>
   </data>
   <data name="btn_clear.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1029, 559</value>
+    <value>1020, 365</value>
   </data>
   <data name="btn_clear.Size" type="System.Drawing.Size, System.Drawing">
     <value>106, 39</value>
@@ -505,7 +391,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_clear.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -532,7 +418,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>13</value>
   </data>
   <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>44, 24</value>
@@ -577,6 +463,39 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;picture.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="cb_figures.Items" xml:space="preserve">
+    <value>Rectangle</value>
+  </data>
+  <data name="cb_figures.Items1" xml:space="preserve">
+    <value>Circle</value>
+  </data>
+  <data name="cb_figures.Items2" xml:space="preserve">
+    <value>Square</value>
+  </data>
+  <data name="cb_figures.Items3" xml:space="preserve">
+    <value>Ellipse</value>
+  </data>
+  <data name="cb_figures.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1005, 192</value>
+  </data>
+  <data name="cb_figures.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 24</value>
+  </data>
+  <data name="cb_figures.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="&gt;&gt;cb_figures.Name" xml:space="preserve">
+    <value>cb_figures</value>
+  </data>
+  <data name="&gt;&gt;cb_figures.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cb_figures.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cb_figures.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

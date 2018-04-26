@@ -1,0 +1,15 @@
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginForTriangle\bin\Debug\PluginForTriangle.dll
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginForTriangle\bin\Debug\PluginForTriangle.pdb
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginForTriangle\bin\Debug\PluginInterfase.dll
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginForTriangle\bin\Debug\PluginInterfase.pdb
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginForTriangle\obj\Debug\PluginForTriangle.csprojResolveAssemblyReference.cache
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginForTriangle\obj\Debug\PluginForTriangle.csproj.CoreCompileInputs.cache
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginForTriangle\obj\Debug\PluginForTriangle.csproj.CopyComplete
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginForTriangle\obj\Debug\PluginForTriangle.dll
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginForTriangle\obj\Debug\PluginForTriangle.pdb
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginForTriangle\bin\Debug\my-primitive-paint.exe
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginForTriangle\bin\Debug\Newtonsoft.Json.dll
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginForTriangle\bin\Debug\my-primitive-paint.pdb
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginForTriangle\bin\Debug\my-primitive-paint.exe.config
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginForTriangle\bin\Debug\Newtonsoft.Json.xml
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginForTriangle\bin\Debug\de-IT\my-primitive-paint.resources.dll

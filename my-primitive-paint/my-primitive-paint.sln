@@ -5,9 +5,11 @@ VisualStudioVersion = 15.0.27428.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "my-primitive-paint", "my-primitive-paint\my-primitive-paint.csproj", "{7BACF2E6-9408-43F6-A16D-92DA36B9DFA2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginInterface", "ClassLibrary1\PluginInterface.csproj", "{D083304B-DD42-45FE-8E09-1ED279FBBDD8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginInterfase", "PluginInterfase\PluginInterfase.csproj", "{16820E5E-AFEB-4D4C-B35F-4FA46EDE9C49}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginTriangle", "PluginTriangle\PluginTriangle.csproj", "{59B81916-DEF2-44AE-B5CC-41E29C743F11}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginForTriangle", "PluginForTriangle\PluginForTriangle.csproj", "{C97551A6-6211-41AF-9657-38B1FAAED7E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FabricModule", "FabricModule\FabricModule.csproj", "{FC1504B9-1229-4B30-9200-4E94939BBC01}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +21,18 @@ Global
 		{7BACF2E6-9408-43F6-A16D-92DA36B9DFA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BACF2E6-9408-43F6-A16D-92DA36B9DFA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BACF2E6-9408-43F6-A16D-92DA36B9DFA2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D083304B-DD42-45FE-8E09-1ED279FBBDD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D083304B-DD42-45FE-8E09-1ED279FBBDD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D083304B-DD42-45FE-8E09-1ED279FBBDD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D083304B-DD42-45FE-8E09-1ED279FBBDD8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{59B81916-DEF2-44AE-B5CC-41E29C743F11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{59B81916-DEF2-44AE-B5CC-41E29C743F11}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{59B81916-DEF2-44AE-B5CC-41E29C743F11}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{59B81916-DEF2-44AE-B5CC-41E29C743F11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16820E5E-AFEB-4D4C-B35F-4FA46EDE9C49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16820E5E-AFEB-4D4C-B35F-4FA46EDE9C49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16820E5E-AFEB-4D4C-B35F-4FA46EDE9C49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16820E5E-AFEB-4D4C-B35F-4FA46EDE9C49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C97551A6-6211-41AF-9657-38B1FAAED7E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C97551A6-6211-41AF-9657-38B1FAAED7E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C97551A6-6211-41AF-9657-38B1FAAED7E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C97551A6-6211-41AF-9657-38B1FAAED7E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC1504B9-1229-4B30-9200-4E94939BBC01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC1504B9-1229-4B30-9200-4E94939BBC01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC1504B9-1229-4B30-9200-4E94939BBC01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC1504B9-1229-4B30-9200-4E94939BBC01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

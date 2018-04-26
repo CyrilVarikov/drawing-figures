@@ -1,0 +1,13 @@
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginInterfase\bin\Debug\PluginInterfase.dll
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginInterfase\bin\Debug\PluginInterfase.pdb
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginInterfase\obj\Debug\PluginInterfase.csprojResolveAssemblyReference.cache
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginInterfase\obj\Debug\PluginInterfase.csproj.CoreCompileInputs.cache
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginInterfase\obj\Debug\PluginInterfase.dll
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginInterfase\obj\Debug\PluginInterfase.pdb
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginInterfase\obj\Debug\PluginInterfase.csproj.CopyComplete
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginInterfase\bin\Debug\my-primitive-paint.exe
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginInterfase\bin\Debug\Newtonsoft.Json.dll
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginInterfase\bin\Debug\my-primitive-paint.pdb
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginInterfase\bin\Debug\my-primitive-paint.exe.config
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginInterfase\bin\Debug\Newtonsoft.Json.xml
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginInterfase\bin\Debug\de-IT\my-primitive-paint.resources.dll

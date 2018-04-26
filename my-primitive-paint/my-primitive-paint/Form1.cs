@@ -4,9 +4,9 @@ using System.Drawing;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using System.IO;
-using PluginInterface;
 using System.Reflection;
 using System.Linq;
+using PluginInterfase;
 
 namespace my_primitive_paint
 {
@@ -23,25 +23,40 @@ namespace my_primitive_paint
 
             RefreshPlugins();
 
-            foreach (var plugin in plugins)
-            {
-                RadioButton rb =  plugin.addRb();
-                this.Controls.Add(rb);
-            }
+            RefreshPluginsFactory();
 
-            
         }
+
+
 
         private readonly string pluginPath = System.IO.Path.Combine(
                                                 Directory.GetCurrentDirectory(),
                                                 "Plugins");
 
-        private List<IPlugin> pluginsFeatures = new List<IPlugin>();
 
         private void RefreshPlugins()
         {
-            pluginsFeatures.Clear();
+            DirectoryInfo pluginDirectory = new DirectoryInfo(pluginPath);
+            if (!pluginDirectory.Exists)
+                pluginDirectory.Create();
 
+            var pluginFiles = Directory.GetFiles(pluginPath, "*.dll");
+            foreach (var file in pluginFiles)
+            {
+                Assembly asm = Assembly.LoadFrom(file);
+                var types = asm.GetTypes().
+                               Where(t => t.GetInterfaces().
+                               Where(i => i.FullName == typeof(IFigure).FullName).Any());
+
+                foreach (var type in types)
+                {
+                    cb_figures.Items.Add(type.Name);
+                }
+            }
+        }
+
+        private void RefreshPluginsFactory()
+        {
             DirectoryInfo pluginDirectory = new DirectoryInfo(pluginPath);
             if (!pluginDirectory.Exists)
                 pluginDirectory.Create();
@@ -52,17 +67,15 @@ namespace my_primitive_paint
             {
                 //загружаем сборку
                 Assembly asm = Assembly.LoadFrom(file);
-                //ищем типы, имплементирующие наш интерфейс IPlugin,
-                //чтобы не захватить лишнего
+               
                 var types = asm.GetTypes().
-                                Where(t => t.GetInterfaces().
-                                Where(i => i.FullName == typeof(IPlugin).FullName).Any());
+                               Where(t => t.GetInterfaces().
+                               Where(i => i.FullName == typeof(IFabric).FullName).Any());
 
-                //заполняем экземплярами полученных типов коллекцию плагинов
                 foreach (var type in types)
                 {
-                    var plugin = asm.CreateInstance(type.FullName) as IPlugin;
-                    pluginsFeatures.Add(plugin);
+                    var plugin = (Fabric)Activator.CreateInstance(type);
+                    allFabrics.Add(plugin);
                 }
             }
         }
@@ -123,8 +136,7 @@ namespace my_primitive_paint
      
 
 
-            if (IsInt(tb_x1.Text, tb_y1.Text, tb_x2.Text, tb_y2.Text) && (rb_circle.Checked == true || rb_ellipse.Checked == true ||
-                rb_reactangle.Checked == true || rb_square.Checked == true) && ((Convert.ToInt32(tb_x1.Text, 10) < picture.Width) &&
+            if (IsInt(tb_x1.Text, tb_y1.Text, tb_x2.Text, tb_y2.Text) && (cb_figures.SelectedIndex > -1) && ((Convert.ToInt32(tb_x1.Text, 10) < picture.Width) &&
                 (Convert.ToInt32(tb_y1.Text, 10) < picture.Height) && (Convert.ToInt32(tb_x2.Text, 10) < picture.Width) &&
                 (Convert.ToInt32(tb_y2.Text, 10) < picture.Height)))
             {
@@ -148,25 +160,7 @@ namespace my_primitive_paint
             
         }
 
-        private void rb_square_CheckedChanged(object sender, EventArgs e)
-        {
-            maker = new SquareFabric();
-        }
-
-        private void rb_reactangle_CheckedChanged(object sender, EventArgs e)
-        {
-            maker = new RectangleFabric();
-        }
-
-        private void rb_ellipse_CheckedChanged(object sender, EventArgs e)
-        {
-            maker = new EllipseFabric();
-        }
-
-        private void rb_circle_CheckedChanged(object sender, EventArgs e)
-        {
-            maker = new CircleFabric();
-        }
+      
 
         private void btn_clear_Click(object sender, EventArgs e)
         {
@@ -268,7 +262,19 @@ namespace my_primitive_paint
             }
         }
 
-    
+        List<Fabric> allFabrics = new List<Fabric>()
+        {
+            new RectangleFabric(),
+            new CircleFabric(),
+            new SquareFabric(),
+            new EllipseFabric()
+        };
+
+
+        private void cb_figures_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            maker = allFabrics[cb_figures.SelectedIndex];
+        }
     }
 
        
