@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginInterfase", "PluginIn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginForTriangle", "PluginForTriangle\PluginForTriangle.csproj", "{C97551A6-6211-41AF-9657-38B1FAAED7E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FabricModule", "FabricModule\FabricModule.csproj", "{FC1504B9-1229-4B30-9200-4E94939BBC01}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginPolygon", "PluginPolygon\PluginPolygon.csproj", "{BB7D5A29-B251-4ECE-AA47-61CCDB3EACCC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{C97551A6-6211-41AF-9657-38B1FAAED7E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C97551A6-6211-41AF-9657-38B1FAAED7E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C97551A6-6211-41AF-9657-38B1FAAED7E4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FC1504B9-1229-4B30-9200-4E94939BBC01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FC1504B9-1229-4B30-9200-4E94939BBC01}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FC1504B9-1229-4B30-9200-4E94939BBC01}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FC1504B9-1229-4B30-9200-4E94939BBC01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB7D5A29-B251-4ECE-AA47-61CCDB3EACCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB7D5A29-B251-4ECE-AA47-61CCDB3EACCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB7D5A29-B251-4ECE-AA47-61CCDB3EACCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB7D5A29-B251-4ECE-AA47-61CCDB3EACCC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

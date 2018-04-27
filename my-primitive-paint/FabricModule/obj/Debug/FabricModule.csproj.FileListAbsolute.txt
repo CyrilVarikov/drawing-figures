@@ -1,5 +1,0 @@
-E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\FabricModule\bin\Debug\FabricModule.dll
-E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\FabricModule\bin\Debug\FabricModule.pdb
-E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\FabricModule\obj\Debug\FabricModule.csproj.CoreCompileInputs.cache
-E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\FabricModule\obj\Debug\FabricModule.dll
-E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\FabricModule\obj\Debug\FabricModule.pdb

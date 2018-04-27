@@ -129,7 +129,7 @@ namespace my_primitive_paint
 
         private const int fatness = 4;
         private Color color = Color.Aquamarine;
-        private List<ForJSON> jsonList = new List<ForJSON>();
+        private List<InfoForJSON> jsonList = new List<InfoForJSON>();
 
         private void draw_Click(object sender, EventArgs e)
         {
@@ -145,7 +145,7 @@ namespace my_primitive_paint
                 figure = maker.FactoryMethod(fatness, color, topLeft, bottomRight);
 
                 figure.Draw(graphics);
-                jsonList.Add(new ForJSON() { fatness = fatness, color = color, topLeft = topLeft, bottomRight = bottomRight, fabric = maker.GetType()});
+                jsonList.Add(new InfoForJSON() { fatness = fatness, color = color, topLeft = topLeft, bottomRight = bottomRight, fabric = maker.GetType()});
                 
 
                 picture.Image = bmap;
@@ -190,7 +190,7 @@ namespace my_primitive_paint
                     {
                         try
                         {
-                            ForJSON jSON = JsonConvert.DeserializeObject<ForJSON>(dataBlock);
+                            InfoForJSON jSON = JsonConvert.DeserializeObject<InfoForJSON>(dataBlock);
                             jsonList.Add(jSON);
                             Fabric factory = (Fabric)Activator.CreateInstance(jSON.fabric);
                             figure = factory.FactoryMethod(jSON.fatness, jSON.color, jSON.topLeft, jSON.bottomRight);
@@ -198,7 +198,7 @@ namespace my_primitive_paint
 
                             picture.Image = bmap;
                         }
-                        catch
+                        catch(Exception ex)
                         {
                             MessageBox.Show("Some figure is not valid...", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             continue;

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FC1504B9-1229-4B30-9200-4E94939BBC01}</ProjectGuid>
+    <ProjectGuid>{BB7D5A29-B251-4ECE-AA47-61CCDB3EACCC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FabricModule</RootNamespace>
-    <AssemblyName>FabricModule</AssemblyName>
+    <RootNamespace>PluginPolygon</RootNamespace>
+    <AssemblyName>PluginPolygon</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -41,8 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Fabric.cs" />
+    <Compile Include="Polygon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\my-primitive-paint\my-primitive-paint.csproj">
+      <Project>{7bacf2e6-9408-43f6-a16d-92da36b9dfa2}</Project>
+      <Name>my-primitive-paint</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PluginInterfase\PluginInterfase.csproj">
+      <Project>{16820e5e-afeb-4d4c-b35f-4fa46ede9c49}</Project>
+      <Name>PluginInterfase</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

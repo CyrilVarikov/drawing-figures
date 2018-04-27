@@ -1,0 +1,6 @@
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\ForJSON\bin\Debug\ForJSON.dll
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\ForJSON\bin\Debug\ForJSON.pdb
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\ForJSON\obj\Debug\ForJSON.csprojResolveAssemblyReference.cache
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\ForJSON\obj\Debug\ForJSON.csproj.CoreCompileInputs.cache
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\ForJSON\obj\Debug\ForJSON.dll
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\ForJSON\obj\Debug\ForJSON.pdb

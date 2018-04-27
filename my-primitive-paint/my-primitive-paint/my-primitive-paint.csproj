@@ -64,13 +64,13 @@
     <Compile Include="Fabric.cs" />
     <Compile Include="figures\Circle.cs" />
     <Compile Include="figures\Ellipse.cs" />
-    <Compile Include="ForJSON.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="InfoForJSON.cs" />
     <Compile Include="ListOfFigures.cs" />
     <Compile Include="figures\Polygon.cs" />
     <Compile Include="Program.cs" />
@@ -111,12 +111,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\FabricModule\FabricModule.csproj">
-      <Project>{FC1504B9-1229-4B30-9200-4E94939BBC01}</Project>
-      <Name>FabricModule</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
