@@ -61,13 +61,14 @@ namespace my_primitive_paint
             if (!pluginDirectory.Exists)
                 pluginDirectory.Create();
 
-            //берем из директории все файлы с расширением .dll      
+            //get all.dll      
             var pluginFiles = Directory.GetFiles(pluginPath, "*.dll");
             foreach (var file in pluginFiles)
             {
-                //загружаем сборку
+                //load assembly
                 Assembly asm = Assembly.LoadFrom(file);
-               
+
+                //get needed things
                 var types = asm.GetTypes().
                                Where(t => t.GetInterfaces().
                                Where(i => i.FullName == typeof(IFabric).FullName).Any());
@@ -83,7 +84,7 @@ namespace my_primitive_paint
 
         private void drawButton_Click(object sender, EventArgs e)
         {
-            
+
             Point point1 = new Point(450, 50);
             Point point2 = new Point(370, 150);
             Point point3 = new Point(540, 100);
@@ -96,14 +97,14 @@ namespace my_primitive_paint
                  point3,
                  point4,
                  point5
-             
+
              };
 
             List<MainFigure> Figures = new List<MainFigure>();
-            Figures.Add(new Square(4, Color.Aqua, new Point(30, 30), new Point(130,130)));
+            Figures.Add(new Square(4, Color.Aqua, new Point(30, 30), new Point(130, 130)));
             Figures.Add(new Rectangle(3, Color.Black, new Point(150, 30), new Point(250, 90)));
             Figures.Add(new Ellipse(2, Color.Aquamarine, new Point(200, 110), new Point(350, 200)));
-            Figures.Add(new Circle(4, Color.Aqua, new Point(30, 200), new Point(130, 130))); 
+            Figures.Add(new Circle(4, Color.Aqua, new Point(30, 200), new Point(130, 130)));
             Figures.Add(new Polygon(5, Color.Chocolate, points));
 
             ListOfFigures listOfFigures = new ListOfFigures(Figures);
@@ -123,7 +124,7 @@ namespace my_primitive_paint
             {
                 return true;
             }
-            
+
             return false;
         }
 
@@ -133,7 +134,7 @@ namespace my_primitive_paint
 
         private void draw_Click(object sender, EventArgs e)
         {
-     
+
 
 
             if (IsInt(tb_x1.Text, tb_y1.Text, tb_x2.Text, tb_y2.Text) && (cb_figures.SelectedIndex > -1) && ((Convert.ToInt32(tb_x1.Text, 10) < picture.Width) &&
@@ -145,22 +146,23 @@ namespace my_primitive_paint
                 figure = maker.FactoryMethod(fatness, color, topLeft, bottomRight);
 
                 figure.Draw(graphics);
-                jsonList.Add(new InfoForJSON() { fatness = fatness, color = color, topLeft = topLeft, bottomRight = bottomRight, fabric = maker.GetType()});
-                
+                jsonList.Add(new InfoForJSON() { fatness = fatness, color = color, topLeft = topLeft, bottomRight = bottomRight, possitionFabric = cb_figures.SelectedIndex });
+
 
                 picture.Image = bmap;
-            } else
+            }
+            else
             {
                 tb_x1.Text = tb_x2.Text = tb_y1.Text = tb_y2.Text = "";
                 MessageBox.Show("Invalid coordinate entered or no figure selected", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
-            
 
-            
+
+
+
         }
 
-      
+
 
         private void btn_clear_Click(object sender, EventArgs e)
         {
@@ -169,7 +171,7 @@ namespace my_primitive_paint
             picture.Image = bmap;
         }
 
-     
+
         private void openToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -192,13 +194,13 @@ namespace my_primitive_paint
                         {
                             InfoForJSON jSON = JsonConvert.DeserializeObject<InfoForJSON>(dataBlock);
                             jsonList.Add(jSON);
-                            Fabric factory = (Fabric)Activator.CreateInstance(jSON.fabric);
+                            Fabric factory = allFabrics[jSON.possitionFabric];
                             figure = factory.FactoryMethod(jSON.fatness, jSON.color, jSON.topLeft, jSON.bottomRight);
                             figure.Draw(graphics);
 
                             picture.Image = bmap;
                         }
-                        catch(Exception ex)
+                        catch (Exception ex)
                         {
                             MessageBox.Show("Some figure is not valid...", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             continue;
@@ -222,16 +224,15 @@ namespace my_primitive_paint
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                StreamReader stream = new StreamReader(openFileDialog.OpenFile());
+                using (StreamReader stream = new StreamReader(openFileDialog.OpenFile()))
+                {
+                    string data = stream.ReadToEnd();
 
-                string data = stream.ReadToEnd();
+                    string[] dataArray = data.Split('\n');
 
-                string[] dataArray = data.Split('\n');
-
-                stream.Close();
-                EditDrawedFigures edit = new EditDrawedFigures(dataArray);
-                edit.Show();
-
+                    EditDrawedFigures edit = new EditDrawedFigures(dataArray);
+                    edit.Show();
+                }
             }
         }
 
@@ -246,19 +247,19 @@ namespace my_primitive_paint
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                StreamWriter stream = new StreamWriter(saveFileDialog.OpenFile());
-
-                JsonSerializer serializer = new JsonSerializer();
-                using (JsonWriter writer = new JsonTextWriter(stream))
+                using (StreamWriter stream = new StreamWriter(saveFileDialog.OpenFile()))
                 {
-                    for (int i = 0; i < jsonList.Count; i++)
+                    JsonSerializer serializer = new JsonSerializer();
+                    using (JsonWriter writer = new JsonTextWriter(stream))
                     {
-                        serializer.Serialize(writer, jsonList[i]);
-                        if (i != jsonList.Count - 1)
-                            stream.Write('\n');
+                        for (int i = 0; i < jsonList.Count; i++)
+                        {
+                            serializer.Serialize(writer, jsonList[i]);
+                            if (i != jsonList.Count - 1)
+                                stream.Write('\n');
+                        }
                     }
-                }
-                stream.Close();
+                };
             }
         }
 
@@ -277,5 +278,5 @@ namespace my_primitive_paint
         }
     }
 
-       
+
 }

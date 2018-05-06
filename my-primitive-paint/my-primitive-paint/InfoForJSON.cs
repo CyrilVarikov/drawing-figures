@@ -9,6 +9,6 @@ namespace my_primitive_paint
         public Color color;
         public Point topLeft;
         public Point bottomRight;
-        public Type fabric;
+        public int possitionFabric;
     }
 }
