@@ -117,10 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>85, 17</value>
-  </metadata>
-  <metadata name="ts.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
+  <data name="drawButton" xml:space="preserve">
+    <value>Все фигуры</value>
+  </data>
+  <data name="draw" xml:space="preserve">
+    <value>Нарисовать</value>
+  </data>
+  <data name="btn_clear" xml:space="preserve">
+    <value>Очистить</value>
+  </data>
+  <data name="fileToolStripMenuItem" xml:space="preserve">
+    <value>Файл</value>
+  </data>
+  <data name="openToolStripMenuItem" xml:space="preserve">
+    <value>Открыть</value>
+  </data>
+  <data name="saveToolStripMenuItem" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="editToolStripMenuItem" xml:space="preserve">
+    <value>Редактировать</value>
+  </data>
+  <data name="ts_label" xml:space="preserve">
+    <value>Язык</value>
+  </data>
+  <data name="cb_figures" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAARAQAAAAQAAAAGAgAAABrQn9GA0Y/QvNC+0YPQs9C+0LvRjNC90LjQugYD
+        AAAACNCa0YDRg9CzBgQAAAAO0JrQstCw0LTRgNCw0YIGBQAAAArQrdC70LjQv9GBCw==
+</value>
+  </data>
 </root>

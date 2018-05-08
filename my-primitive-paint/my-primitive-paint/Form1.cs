@@ -7,6 +7,11 @@ using System.IO;
 using System.Reflection;
 using System.Linq;
 using PluginInterfase;
+using System.ComponentModel;
+using System.Globalization;
+using System.Runtime.InteropServices;
+using System.Resources;
+using System.Collections;
 
 namespace my_primitive_paint
 {
@@ -17,6 +22,9 @@ namespace my_primitive_paint
         public mainForm()
         {
             InitializeComponent();
+
+            ts_cmb.SelectedIndex = 1;
+
 
             bmap = new Bitmap(picture.Width, picture.Height);
             graphics = Graphics.FromImage(bmap);
@@ -29,11 +37,11 @@ namespace my_primitive_paint
 
 
 
+
+
         private readonly string pluginPath = System.IO.Path.Combine(
                                                 Directory.GetCurrentDirectory(),
                                                 "Plugins");
-
-
         private void RefreshPlugins()
         {
             DirectoryInfo pluginDirectory = new DirectoryInfo(pluginPath);
@@ -80,6 +88,8 @@ namespace my_primitive_paint
                 }
             }
         }
+
+
 
 
         private void drawButton_Click(object sender, EventArgs e)
@@ -276,7 +286,101 @@ namespace my_primitive_paint
         {
             maker = allFabrics[cb_figures.SelectedIndex];
         }
+
+
+        private void ChangeLanguage(string lang)
+        {
+
+
+            /*using (ResXResourceWriter resx = new ResXResourceWriter(@".\en-locale.resx"))
+            {
+                string[] figures = { "Rectangle", "Circle", "Square", "Ellipse" };
+                resx.AddResource("drawButton", "All figures");
+                resx.AddResource("draw", "Draw");
+                resx.AddResource("btn_clear", "Clear");
+                resx.AddResource("fileToolStripMenuItem", "File");
+                resx.AddResource("openToolStripMenuItem", "Open");
+                resx.AddResource("saveToolStripMenuItem", "Save");
+                resx.AddResource("editToolStripMenuItem", "Edit");
+                resx.AddResource("ts_label", "Language");
+                resx.AddResource("cb_figures", figures);
+                //resx.AddResource("Title", "Classic American Cars");
+                //resx.AddResource("Title", "Classic American Cars");
+                //resx.AddResource("Title", "Classic American Cars");
+                //resx.AddResource("Title", "Classic American Cars");
+            }*/
+
+            
+            using (ResXResourceReader resxReader = new ResXResourceReader(lang))
+            {
+                Dictionary<string, string> keyValuePairs = new Dictionary<string, string>();
+                string[] figures = {"Rectangle","Circle","Square","Ellipse" };
+                foreach (DictionaryEntry entry in resxReader)
+                {
+                    if((string)entry.Key == "cb_figures")
+                    {
+                        figures = (string[])entry.Value;
+                    }
+                    else
+                    {
+                        keyValuePairs.Add((string)entry.Key, (string)entry.Value);
+                    }
+                    
+                }
+
+                foreach( Control c in this.Controls)
+                {
+                    if (keyValuePairs.ContainsKey(c.Name))
+                    {
+                        c.Text = keyValuePairs[c.Name];
+                    }
+
+                    if(c is MenuStrip)
+                    {
+                        foreach (ToolStripMenuItem item in menuStrip1.Items)
+                        {
+                            item.Text = keyValuePairs[item.Name];
+                            foreach (ToolStripMenuItem children in item.DropDownItems)
+                            {
+                                children.Text = keyValuePairs[children.Name];
+                            }
+                        }
+                    }
+
+                    if(c is ToolStrip)
+                    {
+                        ts.Items[0].Text = keyValuePairs[ts.Items[0].Name];
+                    }
+
+                    if(c is ComboBox)
+                    {
+                        cb_figures.Items.Clear();
+                        foreach(var item in figures)
+                        {
+                            cb_figures.Items.Add(item);
+                        }
+                    }
+                    
+                }
+
+            }
+
+
+            RefreshPlugins();
+        }
+
+
+        private void ts_cmb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lbl_for_y2.Focus();
+            if (ts_cmb.SelectedIndex == 0)
+            {
+                ChangeLanguage(@".\ru-locale.resx");
+            }
+            else
+            {
+                ChangeLanguage(@".\en-locale.resx");
+            }
+        }
     }
-
-
 }

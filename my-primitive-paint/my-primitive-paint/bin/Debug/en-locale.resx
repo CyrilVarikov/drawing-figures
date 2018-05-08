@@ -117,10 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>85, 17</value>
-  </metadata>
-  <metadata name="ts.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
+  <data name="drawButton" xml:space="preserve">
+    <value>All figures</value>
+  </data>
+  <data name="draw" xml:space="preserve">
+    <value>Draw</value>
+  </data>
+  <data name="btn_clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="fileToolStripMenuItem" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="openToolStripMenuItem" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="saveToolStripMenuItem" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="editToolStripMenuItem" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="ts_label" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="cb_figures" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAARAQAAAAQAAAAGAgAAAAlSZWN0YW5nbGUGAwAAAAZDaXJjbGUGBAAAAAZT
+        cXVhcmUGBQAAAAdFbGxpcHNlCw==
+</value>
+  </data>
 </root>

@@ -47,11 +47,5 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\my-primitive-paint\my-primitive-paint.csproj">
-      <Project>{7bacf2e6-9408-43f6-a16d-92da36b9dfa2}</Project>
-      <Name>my-primitive-paint</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

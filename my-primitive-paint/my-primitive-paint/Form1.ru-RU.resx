@@ -117,7 +117,62 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="drawButton.Text" xml:space="preserve">
+    <value>Нарисовать фигуры</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="draw.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 32</value>
+  </data>
+  <data name="draw.Text" xml:space="preserve">
+    <value>Нарисовать</value>
+  </data>
+  <data name="btn_clear.Text" xml:space="preserve">
+    <value>Очистить</value>
+  </data>
+  <data name="openToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>186, 26</value>
+  </data>
+  <data name="openToolStripMenuItem.Text" xml:space="preserve">
+    <value>Открыть</value>
+  </data>
+  <data name="saveToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>186, 26</value>
+  </data>
+  <data name="saveToolStripMenuItem.Text" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="editToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>186, 26</value>
+  </data>
+  <data name="editToolStripMenuItem.Text" xml:space="preserve">
+    <value>Редактировать</value>
+  </data>
+  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 24</value>
+  </data>
+  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
+    <value>Файл</value>
+  </data>
+  <data name="cb_figures.Items" xml:space="preserve">
+    <value>Прямоугольник</value>
+  </data>
+  <data name="cb_figures.Items1" xml:space="preserve">
+    <value>Круг</value>
+  </data>
+  <data name="cb_figures.Items2" xml:space="preserve">
+    <value>Квадрат</value>
+  </data>
+  <data name="cb_figures.Items3" xml:space="preserve">
+    <value>Прямоугольник</value>
+  </data>
+  <data name="ts_label.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 25</value>
+  </data>
+  <data name="ts_label.Text" xml:space="preserve">
+    <value>Язык</value>
+  </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>my-paint</value>
+    <value>Рисовалка</value>
   </data>
 </root>
