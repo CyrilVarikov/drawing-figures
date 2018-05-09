@@ -24,8 +24,7 @@ namespace my_primitive_paint
             InitializeComponent();
 
             ts_cmb.SelectedIndex = 1;
-
-
+    
             bmap = new Bitmap(picture.Width, picture.Height);
             graphics = Graphics.FromImage(bmap);
 
@@ -295,6 +294,7 @@ namespace my_primitive_paint
             /*using (ResXResourceWriter resx = new ResXResourceWriter(@".\en-locale.resx"))
             {
                 string[] figures = { "Rectangle", "Circle", "Square", "Ellipse" };
+                string[] themes = {"--Themes--","Dark", "Light" };
                 resx.AddResource("drawButton", "All figures");
                 resx.AddResource("draw", "Draw");
                 resx.AddResource("btn_clear", "Clear");
@@ -304,10 +304,7 @@ namespace my_primitive_paint
                 resx.AddResource("editToolStripMenuItem", "Edit");
                 resx.AddResource("ts_label", "Language");
                 resx.AddResource("cb_figures", figures);
-                //resx.AddResource("Title", "Classic American Cars");
-                //resx.AddResource("Title", "Classic American Cars");
-                //resx.AddResource("Title", "Classic American Cars");
-                //resx.AddResource("Title", "Classic American Cars");
+                resx.AddResource("cmb_themes", themes);
             }*/
 
             
@@ -315,13 +312,18 @@ namespace my_primitive_paint
             {
                 Dictionary<string, string> keyValuePairs = new Dictionary<string, string>();
                 string[] figures = {"Rectangle","Circle","Square","Ellipse" };
+                string[] themes = { "--Themes--", "Dark", "Light" };
+
                 foreach (DictionaryEntry entry in resxReader)
                 {
                     if((string)entry.Key == "cb_figures")
                     {
                         figures = (string[])entry.Value;
                     }
-                    else
+                    else if((string)entry.Key == "cmb_themes")
+                    {
+                        themes = (string[])entry.Value;
+                    }else
                     {
                         keyValuePairs.Add((string)entry.Key, (string)entry.Value);
                     }
@@ -354,10 +356,23 @@ namespace my_primitive_paint
 
                     if(c is ComboBox)
                     {
-                        cb_figures.Items.Clear();
-                        foreach(var item in figures)
+                        if (c.Name == "cb_figures") {
+                            cb_figures.Items.Clear();
+                            foreach (var item in figures)
+                            {
+                                cb_figures.Items.Add(item);
+                            }
+                        }
+
+                        if (c.Name == "cmb_themes")
                         {
-                            cb_figures.Items.Add(item);
+                            cmb_themes.SelectedIndex = -1;
+                            cmb_themes.Text = themes[0];
+                            cmb_themes.Items.Clear();
+                            for(int i = 1; i < 3; i++)
+                            {
+                                cmb_themes.Items.Add(themes[i]);
+                            }
                         }
                     }
                     
@@ -381,6 +396,82 @@ namespace my_primitive_paint
             {
                 ChangeLanguage(@".\en-locale.resx");
             }
+        }
+
+        private void ChangeTheme(string theme)
+        {
+            /*using (ResXResourceWriter resx = new ResXResourceWriter(@".\dark-theme.resx"))
+            {
+                Color[] colors = { Color.Gray, Color.White };
+                Color[] colorsStrip = { Color.FromArgb(50,171,164,164),Color.White };
+                Color[] colorsItem = { Color.LightGray, Color.Black};
+                Color[] buttColors = { Color.WhiteSmoke, Color.Black };
+                resx.AddResource("this", colors);
+                resx.AddResource("drawButton", buttColors);
+                resx.AddResource("draw", buttColors);
+                resx.AddResource("btn_clear", buttColors);
+                resx.AddResource("menuStrip1", colorsStrip);
+                resx.AddResource("fileToolStripMenuItem", colorsItem);
+                resx.AddResource("openToolStripMenuItem", colors);
+                resx.AddResource("saveToolStripMenuItem", colors);
+                resx.AddResource("editToolStripMenuItem", colors);
+                resx.AddResource("ts", colorsStrip);
+            }*/
+
+            using (ResXResourceReader resxReader = new ResXResourceReader(theme))
+            {
+                Dictionary<string, Color[]> keyValuePairs = new Dictionary<string, Color[]>();
+                foreach (DictionaryEntry entry in resxReader)
+                { 
+                    keyValuePairs.Add((string)entry.Key, (Color[])entry.Value);
+                }
+
+                foreach (Control c in this.Controls)
+                {
+                    if (keyValuePairs.ContainsKey(c.Name))
+                    {
+                        c.BackColor = keyValuePairs[c.Name][0];
+                        c.ForeColor = keyValuePairs[c.Name][1];
+                    }
+
+                    if (c is MenuStrip)
+                    {
+                        foreach (ToolStripMenuItem item in menuStrip1.Items)
+                        {
+                            item.BackColor = keyValuePairs[item.Name][0];
+                            item.ForeColor = keyValuePairs[item.Name][1];
+                            foreach (ToolStripMenuItem children in item.DropDownItems)
+                            {
+                                children.BackColor = keyValuePairs[children.Name][0];
+                                children.ForeColor = keyValuePairs[children.Name][1];
+                            }
+                        }
+                    }
+                }
+
+                this.BackColor = keyValuePairs["this"][0];
+                this.ForeColor = keyValuePairs["this"][1];
+
+            }
+
+
+        }
+
+        private void cmb_themes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lbl_for_y2.Focus();
+            if(cmb_themes.SelectedIndex != -1)
+            {
+                if (cmb_themes.SelectedIndex == 0)
+                {
+                    ChangeTheme(@".\dark-theme.resx");
+                }
+                else
+                {
+                    ChangeTheme(@".\light-theme.resx");
+                }
+            }
+            
         }
     }
 }

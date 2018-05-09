@@ -117,40 +117,94 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="drawButton" xml:space="preserve">
-    <value>All figures</value>
-  </data>
-  <data name="draw" xml:space="preserve">
-    <value>Draw</value>
-  </data>
-  <data name="btn_clear" xml:space="preserve">
-    <value>Clear</value>
-  </data>
-  <data name="fileToolStripMenuItem" xml:space="preserve">
-    <value>File</value>
-  </data>
-  <data name="openToolStripMenuItem" xml:space="preserve">
-    <value>Open</value>
-  </data>
-  <data name="saveToolStripMenuItem" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="editToolStripMenuItem" xml:space="preserve">
-    <value>Edit</value>
-  </data>
-  <data name="ts_label" xml:space="preserve">
-    <value>Language</value>
-  </data>
-  <data name="cb_figures" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="this" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
-        AAEAAAD/////AQAAAAAAAAARAQAAAAQAAAAGAgAAAAlSZWN0YW5nbGUGAwAAAAZDaXJjbGUGBAAAAAZT
-        cXVhcmUGBQAAAAdFbGxpcHNlCw==
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0
+        dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EHAQAAAAABAAAAAgAAAAQU
+        U3lzdGVtLkRyYXdpbmcuQ29sb3ICAAAABf3///8UU3lzdGVtLkRyYXdpbmcuQ29sb3IEAAAABG5hbWUF
+        dmFsdWUKa25vd25Db2xvcgVzdGF0ZQEAAAAJBwcCAAAACgAAAAAAAAAATgABAAH8/////f///woAAAAA
+        AAAAAKQAAQAL
 </value>
   </data>
-  <data name="cmb_themes" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="drawButton" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
-        AAEAAAD/////AQAAAAAAAAARAQAAAAMAAAAGAgAAAAotLVRoZW1lcy0tBgMAAAAERGFyawYEAAAABUxp
-        Z2h0Cw==
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0
+        dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EHAQAAAAABAAAAAgAAAAQU
+        U3lzdGVtLkRyYXdpbmcuQ29sb3ICAAAABf3///8UU3lzdGVtLkRyYXdpbmcuQ29sb3IEAAAABG5hbWUF
+        dmFsdWUKa25vd25Db2xvcgVzdGF0ZQEAAAAJBwcCAAAACgAAAAAAAAAApQABAAH8/////f///woAAAAA
+        AAAAACMAAQAL
+</value>
+  </data>
+  <data name="draw" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0
+        dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EHAQAAAAABAAAAAgAAAAQU
+        U3lzdGVtLkRyYXdpbmcuQ29sb3ICAAAABf3///8UU3lzdGVtLkRyYXdpbmcuQ29sb3IEAAAABG5hbWUF
+        dmFsdWUKa25vd25Db2xvcgVzdGF0ZQEAAAAJBwcCAAAACgAAAAAAAAAApQABAAH8/////f///woAAAAA
+        AAAAACMAAQAL
+</value>
+  </data>
+  <data name="btn_clear" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0
+        dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EHAQAAAAABAAAAAgAAAAQU
+        U3lzdGVtLkRyYXdpbmcuQ29sb3ICAAAABf3///8UU3lzdGVtLkRyYXdpbmcuQ29sb3IEAAAABG5hbWUF
+        dmFsdWUKa25vd25Db2xvcgVzdGF0ZQEAAAAJBwcCAAAACgAAAAAAAAAApQABAAH8/////f///woAAAAA
+        AAAAACMAAQAL
+</value>
+  </data>
+  <data name="menuStrip1" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0
+        dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EHAQAAAAABAAAAAgAAAAQU
+        U3lzdGVtLkRyYXdpbmcuQ29sb3ICAAAABf3///8UU3lzdGVtLkRyYXdpbmcuQ29sb3IEAAAABG5hbWUF
+        dmFsdWUKa25vd25Db2xvcgVzdGF0ZQEAAAAJBwcCAAAACqSkqzIAAAAAAAACAAH8/////f///woAAAAA
+        AAAAAKQAAQAL
+</value>
+  </data>
+  <data name="fileToolStripMenuItem" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0
+        dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EHAQAAAAABAAAAAgAAAAQU
+        U3lzdGVtLkRyYXdpbmcuQ29sb3ICAAAABf3///8UU3lzdGVtLkRyYXdpbmcuQ29sb3IEAAAABG5hbWUF
+        dmFsdWUKa25vd25Db2xvcgVzdGF0ZQEAAAAJBwcCAAAACgAAAAAAAAAAXwABAAH8/////f///woAAAAA
+        AAAAACMAAQAL
+</value>
+  </data>
+  <data name="openToolStripMenuItem" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0
+        dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EHAQAAAAABAAAAAgAAAAQU
+        U3lzdGVtLkRyYXdpbmcuQ29sb3ICAAAABf3///8UU3lzdGVtLkRyYXdpbmcuQ29sb3IEAAAABG5hbWUF
+        dmFsdWUKa25vd25Db2xvcgVzdGF0ZQEAAAAJBwcCAAAACgAAAAAAAAAATgABAAH8/////f///woAAAAA
+        AAAAAKQAAQAL
+</value>
+  </data>
+  <data name="saveToolStripMenuItem" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0
+        dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EHAQAAAAABAAAAAgAAAAQU
+        U3lzdGVtLkRyYXdpbmcuQ29sb3ICAAAABf3///8UU3lzdGVtLkRyYXdpbmcuQ29sb3IEAAAABG5hbWUF
+        dmFsdWUKa25vd25Db2xvcgVzdGF0ZQEAAAAJBwcCAAAACgAAAAAAAAAATgABAAH8/////f///woAAAAA
+        AAAAAKQAAQAL
+</value>
+  </data>
+  <data name="editToolStripMenuItem" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0
+        dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EHAQAAAAABAAAAAgAAAAQU
+        U3lzdGVtLkRyYXdpbmcuQ29sb3ICAAAABf3///8UU3lzdGVtLkRyYXdpbmcuQ29sb3IEAAAABG5hbWUF
+        dmFsdWUKa25vd25Db2xvcgVzdGF0ZQEAAAAJBwcCAAAACgAAAAAAAAAATgABAAH8/////f///woAAAAA
+        AAAAAKQAAQAL
+</value>
+  </data>
+  <data name="ts" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0
+        dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EHAQAAAAABAAAAAgAAAAQU
+        U3lzdGVtLkRyYXdpbmcuQ29sb3ICAAAABf3///8UU3lzdGVtLkRyYXdpbmcuQ29sb3IEAAAABG5hbWUF
+        dmFsdWUKa25vd25Db2xvcgVzdGF0ZQEAAAAJBwcCAAAACqSkqzIAAAAAAAACAAH8/////f///woAAAAA
+        AAAAAKQAAQAL
 </value>
   </data>
 </root>

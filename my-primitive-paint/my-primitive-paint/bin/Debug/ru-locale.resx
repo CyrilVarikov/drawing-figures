@@ -139,12 +139,18 @@
     <value>Редактировать</value>
   </data>
   <data name="ts_label" xml:space="preserve">
-    <value>Язык</value>
+    <value>Языке</value>
   </data>
   <data name="cb_figures" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAARAQAAAAQAAAAGAgAAABrQn9GA0Y/QvNC+0YPQs9C+0LvRjNC90LjQugYD
         AAAACNCa0YDRg9CzBgQAAAAO0JrQstCw0LTRgNCw0YIGBQAAAArQrdC70LjQv9GBCw==
+</value>
+  </data>
+  <data name="cmb_themes" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAARAQAAAAMAAAAGAgAAAAwtLdCi0LXQvNGLLS0GAwAAAAzQotGR0LzQvdCw
+        0Y8GBAAAAA7QodCy0LXRgtC70LDRjws=
 </value>
   </data>
 </root>

@@ -50,6 +50,7 @@
             this.ts_label = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.ts_cmb = new System.Windows.Forms.ToolStripComboBox();
+            this.cmb_themes = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture)).BeginInit();
             this.ts.SuspendLayout();
@@ -61,7 +62,7 @@
             this.drawButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.drawButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.drawButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.drawButton.Location = new System.Drawing.Point(1020, 432);
+            this.drawButton.Location = new System.Drawing.Point(1132, 499);
             this.drawButton.Name = "drawButton";
             this.drawButton.Size = new System.Drawing.Size(106, 42);
             this.drawButton.TabIndex = 1;
@@ -135,9 +136,9 @@
             // 
             // draw
             // 
-            this.draw.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.draw.BackColor = System.Drawing.Color.DimGray;
             this.draw.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.draw.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.draw.ForeColor = System.Drawing.Color.White;
             this.draw.Location = new System.Drawing.Point(1132, 192);
             this.draw.Name = "draw";
             this.draw.Size = new System.Drawing.Size(128, 29);
@@ -151,7 +152,7 @@
             this.btn_clear.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btn_clear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_clear.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_clear.Location = new System.Drawing.Point(1020, 365);
+            this.btn_clear.Location = new System.Drawing.Point(1132, 432);
             this.btn_clear.Name = "btn_clear";
             this.btn_clear.Size = new System.Drawing.Size(106, 39);
             this.btn_clear.TabIndex = 16;
@@ -161,6 +162,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem});
@@ -182,6 +184,8 @@
             // 
             // openToolStripMenuItem
             // 
+            this.openToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
+            this.openToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.openToolStripMenuItem.Text = "Open";
@@ -190,23 +194,23 @@
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(120, 26);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click_1);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(120, 26);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click_1);
             // 
             // picture
             // 
             this.picture.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.picture.Location = new System.Drawing.Point(0, 26);
+            this.picture.Location = new System.Drawing.Point(0, 31);
             this.picture.Name = "picture";
-            this.picture.Size = new System.Drawing.Size(958, 531);
+            this.picture.Size = new System.Drawing.Size(959, 531);
             this.picture.TabIndex = 18;
             this.picture.TabStop = false;
             // 
@@ -226,6 +230,7 @@
             // 
             // ts
             // 
+            this.ts.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ts.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.ts.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.ts.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -258,12 +263,26 @@
             this.ts_cmb.Size = new System.Drawing.Size(180, 28);
             this.ts_cmb.SelectedIndexChanged += new System.EventHandler(this.ts_cmb_SelectedIndexChanged);
             // 
+            // cmb_themes
+            // 
+            this.cmb_themes.FormattingEnabled = true;
+            this.cmb_themes.Items.AddRange(new object[] {
+            "Dark",
+            "Light"});
+            this.cmb_themes.Location = new System.Drawing.Point(979, 328);
+            this.cmb_themes.Name = "cmb_themes";
+            this.cmb_themes.Size = new System.Drawing.Size(147, 24);
+            this.cmb_themes.TabIndex = 20;
+            this.cmb_themes.Text = "      --THEMES--";
+            this.cmb_themes.SelectedIndexChanged += new System.EventHandler(this.cmb_themes_SelectedIndexChanged);
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1272, 588);
+            this.Controls.Add(this.cmb_themes);
             this.Controls.Add(this.ts);
             this.Controls.Add(this.cb_figures);
             this.Controls.Add(this.picture);
@@ -279,6 +298,7 @@
             this.Controls.Add(this.tb_x1);
             this.Controls.Add(this.drawButton);
             this.Controls.Add(this.menuStrip1);
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximumSize = new System.Drawing.Size(1290, 635);
             this.Name = "mainForm";
@@ -317,6 +337,7 @@
         public System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ComboBox cmb_themes;
     }
 }
 
