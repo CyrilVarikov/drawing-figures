@@ -148,9 +148,9 @@
 </value>
   </data>
   <data name="cmb_themes" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAARAQAAAAMAAAAGAgAAAAotLVRoZW1lcy0tBgMAAAAERGFyawYEAAAABUxp
-        Z2h0Cw==
-</value>
+    <value>AAEAAAD/////AQAAAAAAAAARAQAAAAIAAAAGAgAAAAREYXJrBgMAAAAFTGlnaHQL</value>
+  </data>
+  <data name="themes_label" xml:space="preserve">
+    <value>Themes</value>
   </data>
 </root>

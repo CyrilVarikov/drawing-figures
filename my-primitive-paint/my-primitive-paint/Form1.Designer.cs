@@ -51,6 +51,7 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.ts_cmb = new System.Windows.Forms.ToolStripComboBox();
             this.cmb_themes = new System.Windows.Forms.ComboBox();
+            this.themes_label = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture)).BeginInit();
             this.ts.SuspendLayout();
@@ -187,7 +188,7 @@
             this.openToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
             this.openToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(120, 26);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click_1);
             // 
@@ -216,6 +217,8 @@
             // 
             // cb_figures
             // 
+            this.cb_figures.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.cb_figures.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_figures.FormattingEnabled = true;
             this.cb_figures.Items.AddRange(new object[] {
             "Rectangle",
@@ -265,6 +268,7 @@
             // 
             // cmb_themes
             // 
+            this.cmb_themes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_themes.FormattingEnabled = true;
             this.cmb_themes.Items.AddRange(new object[] {
             "Dark",
@@ -273,8 +277,17 @@
             this.cmb_themes.Name = "cmb_themes";
             this.cmb_themes.Size = new System.Drawing.Size(147, 24);
             this.cmb_themes.TabIndex = 20;
-            this.cmb_themes.Text = "      --THEMES--";
             this.cmb_themes.SelectedIndexChanged += new System.EventHandler(this.cmb_themes_SelectedIndexChanged);
+            // 
+            // themes_label
+            // 
+            this.themes_label.AutoSize = true;
+            this.themes_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.themes_label.Location = new System.Drawing.Point(974, 305);
+            this.themes_label.Name = "themes_label";
+            this.themes_label.Size = new System.Drawing.Size(69, 20);
+            this.themes_label.TabIndex = 21;
+            this.themes_label.Text = "Themes";
             // 
             // mainForm
             // 
@@ -282,6 +295,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1272, 588);
+            this.Controls.Add(this.themes_label);
             this.Controls.Add(this.cmb_themes);
             this.Controls.Add(this.ts);
             this.Controls.Add(this.cb_figures);
@@ -304,6 +318,7 @@
             this.Name = "mainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "my-paint";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.mainForm_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture)).EndInit();
@@ -338,6 +353,7 @@
         public System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ComboBox cmb_themes;
+        private System.Windows.Forms.Label themes_label;
     }
 }
 

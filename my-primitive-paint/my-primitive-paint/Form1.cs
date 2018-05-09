@@ -12,6 +12,7 @@ using System.Globalization;
 using System.Runtime.InteropServices;
 using System.Resources;
 using System.Collections;
+using System.Xml.Linq;
 
 namespace my_primitive_paint
 {
@@ -19,11 +20,13 @@ namespace my_primitive_paint
     {
         public Bitmap bmap;
         public Graphics graphics;
+        private bool configIsChanged;
+
         public mainForm()
         {
             InitializeComponent();
 
-            ts_cmb.SelectedIndex = 1;
+            
     
             bmap = new Bitmap(picture.Width, picture.Height);
             graphics = Graphics.FromImage(bmap);
@@ -31,6 +34,28 @@ namespace my_primitive_paint
             RefreshPlugins();
 
             RefreshPluginsFactory();
+
+            try
+            {
+                XDocument xdoc = XDocument.Load("configuration.xml");
+                string theme = "-1";
+                string lang = "-1";
+                foreach (XElement configElement in xdoc.Element("configurations").Elements("config"))
+                {
+                    lang = configElement.Element("language").Value;
+                    theme = configElement.Element("theme").Value;
+
+                }
+
+                cmb_themes.SelectedIndex = Convert.ToInt32(theme, 10);
+                ts_cmb.SelectedIndex = Convert.ToInt32(lang, 10);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Something wrong...", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            configIsChanged = false;
+                
 
         }
 
@@ -291,97 +316,111 @@ namespace my_primitive_paint
         {
 
 
-            /*using (ResXResourceWriter resx = new ResXResourceWriter(@".\en-locale.resx"))
+            /*using (ResXResourceWriter resx = new ResXResourceWriter(@".\ru-locale.resx"))
             {
-                string[] figures = { "Rectangle", "Circle", "Square", "Ellipse" };
-                string[] themes = {"--Themes--","Dark", "Light" };
-                resx.AddResource("drawButton", "All figures");
-                resx.AddResource("draw", "Draw");
-                resx.AddResource("btn_clear", "Clear");
-                resx.AddResource("fileToolStripMenuItem", "File");
-                resx.AddResource("openToolStripMenuItem", "Open");
-                resx.AddResource("saveToolStripMenuItem", "Save");
-                resx.AddResource("editToolStripMenuItem", "Edit");
-                resx.AddResource("ts_label", "Language");
+                string[] figures = { "Прямоугольник", "Круг", "Квадрат", "Элипс" };
+                string[] themes = {"Тёмная", "Светлая" };
+                resx.AddResource("drawButton", "Все фигуры");
+                resx.AddResource("draw", "Нарисовать");
+                resx.AddResource("btn_clear", "Очистить");
+                resx.AddResource("fileToolStripMenuItem", "Файл");
+                resx.AddResource("openToolStripMenuItem", "Открыть");
+                resx.AddResource("saveToolStripMenuItem", "Сохранить");
+                resx.AddResource("editToolStripMenuItem", "Редактировать");
+                resx.AddResource("ts_label", "Язык");
                 resx.AddResource("cb_figures", figures);
                 resx.AddResource("cmb_themes", themes);
+                resx.AddResource("themes_label", "Темы");
             }*/
 
-            
-            using (ResXResourceReader resxReader = new ResXResourceReader(lang))
+            try
             {
-                Dictionary<string, string> keyValuePairs = new Dictionary<string, string>();
-                string[] figures = {"Rectangle","Circle","Square","Ellipse" };
-                string[] themes = { "--Themes--", "Dark", "Light" };
-
-                foreach (DictionaryEntry entry in resxReader)
+                using (ResXResourceReader resxReader = new ResXResourceReader(lang))
                 {
-                    if((string)entry.Key == "cb_figures")
-                    {
-                        figures = (string[])entry.Value;
-                    }
-                    else if((string)entry.Key == "cmb_themes")
-                    {
-                        themes = (string[])entry.Value;
-                    }else
-                    {
-                        keyValuePairs.Add((string)entry.Key, (string)entry.Value);
-                    }
-                    
-                }
+                    Dictionary<string, string> keyValuePairs = new Dictionary<string, string>();
+                    string[] figures = { "Rectangle", "Circle", "Square", "Ellipse" };
+                    string[] themes = { "--Themes--", "Dark", "Light" };
 
-                foreach( Control c in this.Controls)
-                {
-                    if (keyValuePairs.ContainsKey(c.Name))
+                    foreach (DictionaryEntry entry in resxReader)
                     {
-                        c.Text = keyValuePairs[c.Name];
-                    }
-
-                    if(c is MenuStrip)
-                    {
-                        foreach (ToolStripMenuItem item in menuStrip1.Items)
+                        if ((string)entry.Key == "cb_figures")
                         {
-                            item.Text = keyValuePairs[item.Name];
-                            foreach (ToolStripMenuItem children in item.DropDownItems)
-                            {
-                                children.Text = keyValuePairs[children.Name];
-                            }
+                            figures = (string[])entry.Value;
                         }
-                    }
-
-                    if(c is ToolStrip)
-                    {
-                        ts.Items[0].Text = keyValuePairs[ts.Items[0].Name];
-                    }
-
-                    if(c is ComboBox)
-                    {
-                        if (c.Name == "cb_figures") {
-                            cb_figures.Items.Clear();
-                            foreach (var item in figures)
-                            {
-                                cb_figures.Items.Add(item);
-                            }
-                        }
-
-                        if (c.Name == "cmb_themes")
+                        else if ((string)entry.Key == "cmb_themes")
                         {
-                            cmb_themes.SelectedIndex = -1;
-                            cmb_themes.Text = themes[0];
-                            cmb_themes.Items.Clear();
-                            for(int i = 1; i < 3; i++)
+                            themes = (string[])entry.Value;
+                        }
+                        else
+                        {
+                            keyValuePairs.Add((string)entry.Key, (string)entry.Value);
+                        }
+
+                    }
+
+                    foreach (Control c in this.Controls)
+                    {
+                        if (keyValuePairs.ContainsKey(c.Name))
+                        {
+                            c.Text = keyValuePairs[c.Name];
+                        }
+
+                        if (c is MenuStrip)
+                        {
+                            foreach (ToolStripMenuItem item in menuStrip1.Items)
                             {
-                                cmb_themes.Items.Add(themes[i]);
+                                item.Text = keyValuePairs[item.Name];
+                                foreach (ToolStripMenuItem children in item.DropDownItems)
+                                {
+                                    children.Text = keyValuePairs[children.Name];
+                                }
                             }
                         }
-                    }
-                    
-                }
 
+                        if (c is ToolStrip)
+                        {
+                            ts.Items[0].Text = keyValuePairs[ts.Items[0].Name];
+                        }
+
+                        if (c is ComboBox)
+                        {
+                            if (c.Name == "cb_figures")
+                            {
+                                cb_figures.Items.Clear();
+                                foreach (var item in figures)
+                                {
+                                    cb_figures.Items.Add(item);
+                                }
+                            }
+
+                            if (c.Name == "cmb_themes")
+                            {
+
+                                cmb_themes.Items.Clear();
+                                foreach (var item in themes)
+                                {
+                                    cmb_themes.Items.Add(item);
+                                }
+
+                            }
+                        }
+
+                    }
+
+                }
+                RefreshPlugins();
+
+                configIsChanged = true;
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Something wrong...", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                configIsChanged = false;
+            }
+            
 
 
-            RefreshPlugins();
+            
         }
 
 
@@ -418,41 +457,51 @@ namespace my_primitive_paint
                 resx.AddResource("ts", colorsStrip);
             }*/
 
-            using (ResXResourceReader resxReader = new ResXResourceReader(theme))
+            try
             {
-                Dictionary<string, Color[]> keyValuePairs = new Dictionary<string, Color[]>();
-                foreach (DictionaryEntry entry in resxReader)
-                { 
-                    keyValuePairs.Add((string)entry.Key, (Color[])entry.Value);
-                }
-
-                foreach (Control c in this.Controls)
+                using (ResXResourceReader resxReader = new ResXResourceReader(theme))
                 {
-                    if (keyValuePairs.ContainsKey(c.Name))
+                    Dictionary<string, Color[]> keyValuePairs = new Dictionary<string, Color[]>();
+                    foreach (DictionaryEntry entry in resxReader)
                     {
-                        c.BackColor = keyValuePairs[c.Name][0];
-                        c.ForeColor = keyValuePairs[c.Name][1];
+                        keyValuePairs.Add((string)entry.Key, (Color[])entry.Value);
                     }
 
-                    if (c is MenuStrip)
+                    foreach (Control c in this.Controls)
                     {
-                        foreach (ToolStripMenuItem item in menuStrip1.Items)
+                        if (keyValuePairs.ContainsKey(c.Name))
                         {
-                            item.BackColor = keyValuePairs[item.Name][0];
-                            item.ForeColor = keyValuePairs[item.Name][1];
-                            foreach (ToolStripMenuItem children in item.DropDownItems)
+                            c.BackColor = keyValuePairs[c.Name][0];
+                            c.ForeColor = keyValuePairs[c.Name][1];
+                        }
+
+                        if (c is MenuStrip)
+                        {
+                            foreach (ToolStripMenuItem item in menuStrip1.Items)
                             {
-                                children.BackColor = keyValuePairs[children.Name][0];
-                                children.ForeColor = keyValuePairs[children.Name][1];
+                                item.BackColor = keyValuePairs[item.Name][0];
+                                item.ForeColor = keyValuePairs[item.Name][1];
+                                foreach (ToolStripMenuItem children in item.DropDownItems)
+                                {
+                                    children.BackColor = keyValuePairs[children.Name][0];
+                                    children.ForeColor = keyValuePairs[children.Name][1];
+                                }
                             }
                         }
                     }
+
+                    this.BackColor = keyValuePairs["this"][0];
+                    this.ForeColor = keyValuePairs["this"][1];
+
                 }
-
-                this.BackColor = keyValuePairs["this"][0];
-                this.ForeColor = keyValuePairs["this"][1];
-
+                configIsChanged = true;
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Something wrong...", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                configIsChanged = false;
+            }
+            
 
 
         }
@@ -469,6 +518,29 @@ namespace my_primitive_paint
                 else
                 {
                     ChangeTheme(@".\light-theme.resx");
+                }
+            }
+            
+        }
+
+        private void mainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (configIsChanged)
+            {
+                DialogResult result = MessageBox.Show("Are you want save configuration?", "Message",
+                                 MessageBoxButtons.YesNo,
+                                 MessageBoxIcon.Information,
+                                 MessageBoxDefaultButton.Button1,
+                                 MessageBoxOptions.DefaultDesktopOnly);
+
+                if (result == DialogResult.Yes)
+                {
+                    XDocument xdoc = new XDocument(new XElement("configurations",
+                                        new XElement("config",
+                                            new XAttribute("name", "userConfig"),
+                                            new XElement("language", ts_cmb.SelectedIndex),
+                                            new XElement("theme", cmb_themes.SelectedIndex))));
+                    xdoc.Save("configuration.xml");
                 }
             }
             
