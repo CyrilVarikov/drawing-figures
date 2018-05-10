@@ -153,4 +153,16 @@
   <data name="themes_label" xml:space="preserve">
     <value>Themes</value>
   </data>
+  <data name="message" xml:space="preserve">
+    <value>Something wrong...</value>
+  </data>
+  <data name="saveMsg" xml:space="preserve">
+    <value>Are you want to save configuration?</value>
+  </data>
+  <data name="saveMsg_title" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="title_mess" xml:space="preserve">
+    <value>Warning</value>
+  </data>
 </root>

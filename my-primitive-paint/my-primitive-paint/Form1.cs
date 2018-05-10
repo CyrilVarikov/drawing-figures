@@ -21,6 +21,7 @@ namespace my_primitive_paint
         public Bitmap bmap;
         public Graphics graphics;
         private bool configIsChanged;
+        private int currentTheme = -1;
 
         public mainForm()
         {
@@ -47,12 +48,12 @@ namespace my_primitive_paint
 
                 }
 
-                cmb_themes.SelectedIndex = Convert.ToInt32(theme, 10);
+                cmb_themes.SelectedIndex = currentTheme = Convert.ToInt32(theme, 10);
                 ts_cmb.SelectedIndex = Convert.ToInt32(lang, 10);
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Something wrong...", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(message, title_mess, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             configIsChanged = false;
                 
@@ -60,7 +61,8 @@ namespace my_primitive_paint
         }
 
 
-
+        private string message = "Something wrong...";
+        private string title_mess = "Info";
 
 
         private readonly string pluginPath = System.IO.Path.Combine(
@@ -187,8 +189,8 @@ namespace my_primitive_paint
             }
             else
             {
-                tb_x1.Text = tb_x2.Text = tb_y1.Text = tb_y2.Text = "";
-                MessageBox.Show("Invalid coordinate entered or no figure selected", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //tb_x1.Text = tb_x2.Text = tb_y1.Text = tb_y2.Text = "";
+                MessageBox.Show(message, title_mess, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
 
@@ -236,7 +238,7 @@ namespace my_primitive_paint
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("Some figure is not valid...", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show(message, title_mess, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             continue;
                         }
 
@@ -318,7 +320,7 @@ namespace my_primitive_paint
 
             /*using (ResXResourceWriter resx = new ResXResourceWriter(@".\ru-locale.resx"))
             {
-                string[] figures = { "Прямоугольник", "Круг", "Квадрат", "Элипс" };
+                string[] figures = { "Rectangle", "Circle", "Квадрат", "Элипс" };
                 string[] themes = {"Тёмная", "Светлая" };
                 resx.AddResource("drawButton", "Все фигуры");
                 resx.AddResource("draw", "Нарисовать");
@@ -331,6 +333,10 @@ namespace my_primitive_paint
                 resx.AddResource("cb_figures", figures);
                 resx.AddResource("cmb_themes", themes);
                 resx.AddResource("themes_label", "Темы");
+                resx.AddResource("message", "Что-то не так...");
+                resx.AddResource("title_mess", "Предупреждение");
+                resx.AddResource("saveMsg", "Вы хотите сохранить изменения конфигурации?");
+                resx.AddResource("saveMsg_title", "Сохранение");
             }*/
 
             try
@@ -339,7 +345,7 @@ namespace my_primitive_paint
                 {
                     Dictionary<string, string> keyValuePairs = new Dictionary<string, string>();
                     string[] figures = { "Rectangle", "Circle", "Square", "Ellipse" };
-                    string[] themes = { "--Themes--", "Dark", "Light" };
+                    string[] themes = { "Dark", "Light" };
 
                     foreach (DictionaryEntry entry in resxReader)
                     {
@@ -406,6 +412,10 @@ namespace my_primitive_paint
                         }
 
                     }
+                    message = keyValuePairs["message"];
+                    title_mess = keyValuePairs["title_mess"];
+                    saveMsg = keyValuePairs["saveMsg"];
+                    saveMsg_title = keyValuePairs["saveMsg_title"];
 
                 }
                 RefreshPlugins();
@@ -414,7 +424,7 @@ namespace my_primitive_paint
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Something wrong...", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(message, title_mess, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 configIsChanged = false;
             }
             
@@ -498,7 +508,7 @@ namespace my_primitive_paint
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Something wrong...", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(message, title_mess, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 configIsChanged = false;
             }
             
@@ -511,6 +521,7 @@ namespace my_primitive_paint
             lbl_for_y2.Focus();
             if(cmb_themes.SelectedIndex != -1)
             {
+                currentTheme = cmb_themes.SelectedIndex;
                 if (cmb_themes.SelectedIndex == 0)
                 {
                     ChangeTheme(@".\dark-theme.resx");
@@ -523,11 +534,14 @@ namespace my_primitive_paint
             
         }
 
+        private string saveMsg = "Are you want to save configuration?";
+        private string saveMsg_title = "Save";
+
         private void mainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (configIsChanged)
             {
-                DialogResult result = MessageBox.Show("Are you want save configuration?", "Message",
+                DialogResult result = MessageBox.Show(saveMsg, saveMsg_title,
                                  MessageBoxButtons.YesNo,
                                  MessageBoxIcon.Information,
                                  MessageBoxDefaultButton.Button1,
@@ -539,7 +553,7 @@ namespace my_primitive_paint
                                         new XElement("config",
                                             new XAttribute("name", "userConfig"),
                                             new XElement("language", ts_cmb.SelectedIndex),
-                                            new XElement("theme", cmb_themes.SelectedIndex))));
+                                            new XElement("theme", currentTheme))));
                     xdoc.Save("configuration.xml");
                 }
             }
