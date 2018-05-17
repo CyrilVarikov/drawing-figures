@@ -25,6 +25,19 @@ namespace PluginForTriangle
             graphics.DrawPolygon(pen, pointsT);
         }
 
+        public override void MouseDraw(Graphics g, Point finish)
+        {
+            Point[] points =
+            {
+                topLeft,
+                new Point(topLeft.X, finish.Y),
+                finish
+            };
+
+            pointsT = points;
+
+            g.DrawPolygon(pen, pointsT);
+        }
     }
        
 

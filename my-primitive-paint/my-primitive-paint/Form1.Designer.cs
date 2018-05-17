@@ -214,6 +214,9 @@
             this.picture.Size = new System.Drawing.Size(959, 531);
             this.picture.TabIndex = 18;
             this.picture.TabStop = false;
+            this.picture.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picture_MouseDown);
+            this.picture.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picture_MouseMove);
+            this.picture.MouseUp += new System.Windows.Forms.MouseEventHandler(this.picture_MouseUp);
             // 
             // cb_figures
             // 

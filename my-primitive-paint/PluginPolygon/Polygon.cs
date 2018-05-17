@@ -27,6 +27,22 @@ namespace PluginPolygon
             graphics.DrawPolygon(pen, pointsT);
         }
 
+        public override void MouseDraw(Graphics g, Point finish)
+        {
+            Point[] points =
+            {
+                new Point (topLeft.X + ((finish.X - topLeft.X) / 2), topLeft.Y),
+                new Point(topLeft.X, finish.Y / 2),
+                new Point((topLeft.X + finish.X / 6), finish.Y),
+                new Point(topLeft.X + finish.X / 2, finish.Y),
+                new Point(finish.X, finish.Y / 2)
+            };
+
+            pointsT = points;
+
+            g.DrawPolygon(pen, pointsT);
+        }
+
     }
 
 

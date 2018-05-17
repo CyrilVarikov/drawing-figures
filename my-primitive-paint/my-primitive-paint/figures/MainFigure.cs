@@ -38,6 +38,6 @@ namespace my_primitive_paint
 
         public virtual void Draw(Graphics graphics) { }
 
- 
+        public virtual void MouseDraw(Graphics g, Point finish) { }
     }
 }

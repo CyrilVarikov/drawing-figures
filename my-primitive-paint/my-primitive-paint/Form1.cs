@@ -588,5 +588,50 @@ namespace my_primitive_paint
             }
             
         }
+
+        private bool isDrawing = false;
+        private Point start, finish;
+        private Bitmap tempBm;
+
+        private void picture_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (isDrawing)
+            {
+                finish = new Point(e.X, e.Y);
+                Graphics g = Graphics.FromImage(bmap);
+                figure.MouseDraw(g, finish);
+                isDrawing = false;
+                picture.Invalidate();
+                jsonList.Add(new InfoForJSON() { fatness = fatness, color = color, topLeft = start, bottomRight = finish, possitionFabric = cb_figures.SelectedIndex, figureName = maker.ToString() });
+            }
+            
+        }
+
+        private void picture_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (isDrawing)
+            {
+                finish = new Point(e.X, e.Y);
+                tempBm = new Bitmap(bmap);
+                picture.Image = tempBm;
+                Graphics g = Graphics.FromImage(tempBm);
+                figure.MouseDraw(g, finish);
+                g.Dispose();
+                picture.Invalidate();
+                GC.Collect();
+            }
+        }
+
+        private void picture_MouseDown(object sender, MouseEventArgs e)
+        {
+            if(cb_figures.SelectedIndex >= 0)
+            {
+                isDrawing = true;
+                start = new Point(e.X, e.Y);
+                figure = maker.FactoryMethod(fatness, color, start, start);
+            }
+            
+
+        }
     }
 }

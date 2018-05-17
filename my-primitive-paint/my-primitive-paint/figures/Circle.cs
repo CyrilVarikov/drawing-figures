@@ -18,5 +18,11 @@ namespace my_primitive_paint
         {
             graphics.DrawEllipse(pen, topLeft.X, topLeft.Y, radius, radius);
         }
+
+        public override void MouseDraw(Graphics g, Point finish)
+        {
+            g.DrawEllipse(pen, topLeft.X, topLeft.Y, finish.X - topLeft.X, finish.X - topLeft.X);
+            g.Dispose();
+        }
     }
 }

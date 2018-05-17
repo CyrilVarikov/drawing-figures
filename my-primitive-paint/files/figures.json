@@ -1,1 +1,6 @@
-{"fatness":4,"color":"Aquamarine","topLeft":"55, 55","bottomRight":"155, 255","possitionFabric":5,"figureName":"PluginPolygon.PolygonFabric"}
+{"fatness":4,"color":"Aquamarine","topLeft":"255, 100","bottomRight":"392, 215","possitionFabric":4,"figureName":"PluginForTriangle.TriangleFabric"}
+{"fatness":4,"color":"Aquamarine","topLeft":"391, 213","bottomRight":"142, 78","possitionFabric":4,"figureName":"PluginForTriangle.TriangleFabric"}
+{"fatness":4,"color":"Aquamarine","topLeft":"146, 79","bottomRight":"489, 237","possitionFabric":4,"figureName":"PluginForTriangle.TriangleFabric"}
+{"fatness":4,"color":"Aquamarine","topLeft":"325, 146","bottomRight":"524, 288","possitionFabric":5,"figureName":"PluginPolygon.PolygonFabric"}
+{"fatness":4,"color":"Aquamarine","topLeft":"179, 105","bottomRight":"576, 316","possitionFabric":5,"figureName":"PluginPolygon.PolygonFabric"}
+{"fatness":4,"color":"Aquamarine","topLeft":"650, 343","bottomRight":"69, 287","possitionFabric":5,"figureName":"PluginPolygon.PolygonFabric"}
