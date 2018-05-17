@@ -16,6 +16,9 @@ using System.Xml.Linq;
 
 namespace my_primitive_paint
 {
+
+    //TODO: readonly vs const
+    //Fix four labs
     public partial class mainForm : Form
     {
         public Bitmap bmap;
@@ -70,49 +73,67 @@ namespace my_primitive_paint
                                                 "Plugins");
         private void RefreshPlugins()
         {
-            DirectoryInfo pluginDirectory = new DirectoryInfo(pluginPath);
-            if (!pluginDirectory.Exists)
-                pluginDirectory.Create();
-
-            var pluginFiles = Directory.GetFiles(pluginPath, "*.dll");
-            foreach (var file in pluginFiles)
+            try
             {
-                Assembly asm = Assembly.LoadFrom(file);
-                var types = asm.GetTypes().
-                               Where(t => t.GetInterfaces().
-                               Where(i => i.FullName == typeof(IFigure).FullName).Any());
+                DirectoryInfo pluginDirectory = new DirectoryInfo(pluginPath);
+                if (!pluginDirectory.Exists)
+                    pluginDirectory.Create();
 
-                foreach (var type in types)
+                var pluginFiles = Directory.GetFiles(pluginPath, "*.dll");
+                foreach (var file in pluginFiles)
                 {
-                    cb_figures.Items.Add(type.Name);
+                    Assembly asm = Assembly.LoadFrom(file);
+                    var types = asm.GetTypes().
+                                   Where(t => t.GetInterfaces().
+                                   Where(i => i.FullName == typeof(IFigure).FullName).Any());
+
+                    //asm.GetTypes().Where(x => x.BaseType == typeof(MainFigure))
+
+                    foreach (var type in types)
+                    {
+                        cb_figures.Items.Add(type.Name);
+                    }
                 }
             }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            
         }
 
         private void RefreshPluginsFactory()
         {
-            DirectoryInfo pluginDirectory = new DirectoryInfo(pluginPath);
-            if (!pluginDirectory.Exists)
-                pluginDirectory.Create();
-
-            //get all.dll      
-            var pluginFiles = Directory.GetFiles(pluginPath, "*.dll");
-            foreach (var file in pluginFiles)
+            try
             {
-                //load assembly
-                Assembly asm = Assembly.LoadFrom(file);
+                DirectoryInfo pluginDirectory = new DirectoryInfo(pluginPath);
+                if (!pluginDirectory.Exists)
+                    pluginDirectory.Create();
 
-                //get needed things
-                var types = asm.GetTypes().
-                               Where(t => t.GetInterfaces().
-                               Where(i => i.FullName == typeof(IFabric).FullName).Any());
-
-                foreach (var type in types)
+                //get all.dll      
+                var pluginFiles = Directory.GetFiles(pluginPath, "*.dll");
+                foreach (var file in pluginFiles)
                 {
-                    var plugin = (Fabric)Activator.CreateInstance(type);
-                    allFabrics.Add(plugin);
+                    //load assembly
+                    Assembly asm = Assembly.LoadFrom(file);
+
+                    //get needed things
+                    var types = asm.GetTypes().
+                                   Where(t => t.GetInterfaces().
+                                   Where(i => i.FullName == typeof(IFabric).FullName).Any());
+
+                    foreach (var type in types)
+                    {
+                        var plugin = (Fabric)Activator.CreateInstance(type);
+                        allFabrics.Add(plugin);
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
 
@@ -182,7 +203,7 @@ namespace my_primitive_paint
                 figure = maker.FactoryMethod(fatness, color, topLeft, bottomRight);
 
                 figure.Draw(graphics);
-                jsonList.Add(new InfoForJSON() { fatness = fatness, color = color, topLeft = topLeft, bottomRight = bottomRight, possitionFabric = cb_figures.SelectedIndex });
+                jsonList.Add(new InfoForJSON() { fatness = fatness, color = color, topLeft = topLeft, bottomRight = bottomRight, possitionFabric = cb_figures.SelectedIndex, figureName = maker.ToString() });
 
 
                 picture.Image = bmap;
@@ -229,12 +250,20 @@ namespace my_primitive_paint
                         try
                         {
                             InfoForJSON jSON = JsonConvert.DeserializeObject<InfoForJSON>(dataBlock);
-                            jsonList.Add(jSON);
-                            Fabric factory = allFabrics[jSON.possitionFabric];
-                            figure = factory.FactoryMethod(jSON.fatness, jSON.color, jSON.topLeft, jSON.bottomRight);
-                            figure.Draw(graphics);
+                            if(jSON.figureName == allFabrics[jSON.possitionFabric].ToString())
+                            {
+                                jsonList.Add(jSON);
+                                Fabric factory = allFabrics[jSON.possitionFabric];
+                                figure = factory.FactoryMethod(jSON.fatness, jSON.color, jSON.topLeft, jSON.bottomRight);
+                                figure.Draw(graphics);
 
-                            picture.Image = bmap;
+                                picture.Image = bmap;
+                            }
+                            else
+                            {
+                                MessageBox.Show(message, title_mess, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                            
                         }
                         catch (Exception ex)
                         {

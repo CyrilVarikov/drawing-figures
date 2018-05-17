@@ -9,9 +9,9 @@ E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\Plug
 E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginPolygon\bin\Debug\my-primitive-paint.exe.config
 E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginPolygon\bin\Debug\PluginInterfase.pdb
 E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginPolygon\bin\Debug\Newtonsoft.Json.xml
-E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginPolygon\bin\Debug\de-IT\my-primitive-paint.resources.dll
-E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginPolygon\bin\Debug\en-US\my-primitive-paint.resources.dll
 E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginPolygon\bin\Debug\ru-RU\my-primitive-paint.resources.dll
 E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginPolygon\obj\Debug\PluginPolygon.csproj.CopyComplete
 E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginPolygon\obj\Debug\PluginPolygon.dll
 E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginPolygon\obj\Debug\PluginPolygon.pdb
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\my-primitive-paint\bin\Debug\Plugins\PluginPolygon.dll
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\my-primitive-paint\bin\Debug\Plugins\PluginPolygon.pdb

@@ -10,5 +10,6 @@ namespace my_primitive_paint
         public Point topLeft;
         public Point bottomRight;
         public int possitionFabric;
+        public string figureName;
     }
 }

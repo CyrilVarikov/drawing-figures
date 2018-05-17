@@ -12,7 +12,6 @@ E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\my-p
 E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\my-primitive-paint\obj\Debug\my-primitive-paint.csproj.CopyComplete
 E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\my-primitive-paint\obj\Debug\my-primitive-paint.exe
 E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\my-primitive-paint\obj\Debug\my-primitive-paint.pdb
-E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\my-primitive-paint\bin\Debug\PluginInterfase.dll
 E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\my-primitive-paint\bin\Debug\PluginInterfase.pdb
 E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\my-primitive-paint\bin\Debug\ru-RU\my-primitive-paint.resources.dll
 E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\my-primitive-paint\obj\Debug\my_primitive_paint.mainForm.ru-RU.resources

@@ -16,7 +16,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\my-primitive-paint\bin\Debug\Plugins\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -46,6 +46,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\my-primitive-paint\my-primitive-paint.csproj">
+      <Project>{7bacf2e6-9408-43f6-a16d-92da36b9dfa2}</Project>
+      <Name>my-primitive-paint</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PluginInterfase\PluginInterfase.csproj">
       <Project>{16820e5e-afeb-4d4c-b35f-4fa46ede9c49}</Project>
       <Name>PluginInterfase</Name>

@@ -3,3 +3,6 @@ E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\Plug
 E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginInterfase\bin\Debug\PluginInterfase.pdb
 E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginInterfase\obj\Debug\PluginInterfase.dll
 E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginInterfase\obj\Debug\PluginInterfase.pdb
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\PluginInterfase\obj\Debug\PluginInterfase.csprojResolveAssemblyReference.cache
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\my-primitive-paint\bin\Debug\PluginInterfase.dll
+E:\Universtiy\fourth term\ООТПиСП\drawing-figures\my-primitive-paint\my-primitive-paint\bin\Debug\PluginInterfase.pdb
