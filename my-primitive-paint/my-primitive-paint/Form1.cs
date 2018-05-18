@@ -203,7 +203,7 @@ namespace my_primitive_paint
                 figure = maker.FactoryMethod(fatness, color, topLeft, bottomRight);
 
                 figure.Draw(graphics);
-                jsonList.Add(new InfoForJSON() { fatness = fatness, color = color, topLeft = topLeft, bottomRight = bottomRight, possitionFabric = cb_figures.SelectedIndex, figureName = maker.ToString() });
+                jsonList.Add(new InfoForJSON() { fatness = fatness, color = color, topLeft = topLeft, bottomRight = bottomRight, figureName = maker.ToString() });
 
 
                 picture.Image = bmap;
@@ -241,7 +241,6 @@ namespace my_primitive_paint
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 StreamReader stream = new StreamReader(openFileDialog.OpenFile());
-
                 string data = stream.ReadToEnd();
                 {
                     string[] dataArray = data.Split('\n');
@@ -250,18 +249,17 @@ namespace my_primitive_paint
                         try
                         {
                             InfoForJSON jSON = JsonConvert.DeserializeObject<InfoForJSON>(dataBlock);
-                            if(jSON.figureName == allFabrics[jSON.possitionFabric].ToString())
+                            foreach(Fabric fab in allFabrics)
                             {
-                                jsonList.Add(jSON);
-                                Fabric factory = allFabrics[jSON.possitionFabric];
-                                figure = factory.FactoryMethod(jSON.fatness, jSON.color, jSON.topLeft, jSON.bottomRight);
-                                figure.Draw(graphics);
-
-                                picture.Image = bmap;
-                            }
-                            else
-                            {
-                                MessageBox.Show(message, title_mess, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                if(jSON.figureName == fab.ToString())
+                                {
+                                    jsonList.Add(jSON);
+                                    Fabric factory = fab;
+                                    figure = factory.FactoryMethod(jSON.fatness, jSON.color, jSON.topLeft, jSON.bottomRight);
+                                    figure.Draw(graphics);
+                                    picture.Image = bmap;
+                                    break;
+                                }
                             }
                             
                         }
@@ -602,7 +600,7 @@ namespace my_primitive_paint
                 figure.MouseDraw(g, finish);
                 isDrawing = false;
                 picture.Invalidate();
-                jsonList.Add(new InfoForJSON() { fatness = fatness, color = color, topLeft = start, bottomRight = finish, possitionFabric = cb_figures.SelectedIndex, figureName = maker.ToString() });
+                jsonList.Add(new InfoForJSON() { fatness = fatness, color = color, topLeft = start, bottomRight = finish, figureName = maker.ToString() });
             }
             
         }
