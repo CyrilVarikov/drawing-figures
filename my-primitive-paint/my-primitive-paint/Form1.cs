@@ -1,24 +1,20 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using PluginInterfase;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Windows.Forms;
-using Newtonsoft.Json;
 using System.IO;
-using System.Reflection;
 using System.Linq;
-using PluginInterfase;
-using System.ComponentModel;
-using System.Globalization;
-using System.Runtime.InteropServices;
+using System.Reflection;
 using System.Resources;
-using System.Collections;
+using System.Windows.Forms;
 using System.Xml.Linq;
 
 namespace my_primitive_paint
 {
 
-    //TODO: readonly vs const
-    //Fix four labs
+    
     public partial class mainForm : Form
     {
         public Bitmap bmap;
@@ -51,8 +47,9 @@ namespace my_primitive_paint
 
                 }
 
-                cmb_themes.SelectedIndex = currentTheme = Convert.ToInt32(theme, 10);
                 ts_cmb.SelectedIndex = Convert.ToInt32(lang, 10);
+                cmb_themes.SelectedIndex = currentTheme = Convert.ToInt32(theme, 10);
+                
             }
             catch(Exception ex)
             {
@@ -190,10 +187,7 @@ namespace my_primitive_paint
         private List<InfoForJSON> jsonList = new List<InfoForJSON>();
 
         private void draw_Click(object sender, EventArgs e)
-        {
-
-
-
+        {    
             if (IsInt(tb_x1.Text, tb_y1.Text, tb_x2.Text, tb_y2.Text) && (cb_figures.SelectedIndex > -1) && ((Convert.ToInt32(tb_x1.Text, 10) < picture.Width) &&
                 (Convert.ToInt32(tb_y1.Text, 10) < picture.Height) && (Convert.ToInt32(tb_x2.Text, 10) < picture.Width) &&
                 (Convert.ToInt32(tb_y2.Text, 10) < picture.Height)))
@@ -201,6 +195,8 @@ namespace my_primitive_paint
                 Point topLeft = new Point(Convert.ToInt32(tb_x1.Text, 10), Convert.ToInt32(tb_y1.Text));
                 Point bottomRight = new Point(Convert.ToInt32(tb_x2.Text, 10), Convert.ToInt32(tb_y2.Text));
                 figure = maker.FactoryMethod(fatness, color, topLeft, bottomRight);
+
+                figureList.Add(figure);
 
                 figure.Draw(graphics);
                 jsonList.Add(new InfoForJSON() { fatness = fatness, color = color, topLeft = topLeft, bottomRight = bottomRight, figureName = maker.ToString() });
@@ -337,6 +333,7 @@ namespace my_primitive_paint
 
         private void cb_figures_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            cmb_custom_figures.SelectedIndex = -1;
             maker = allFabrics[cb_figures.SelectedIndex];
         }
 
@@ -545,9 +542,10 @@ namespace my_primitive_paint
 
         private void cmb_themes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lbl_for_y2.Focus();
+            
             if(cmb_themes.SelectedIndex != -1)
             {
+                lbl_for_y2.Focus();
                 currentTheme = cmb_themes.SelectedIndex;
                 if (cmb_themes.SelectedIndex == 0)
                 {
@@ -558,6 +556,7 @@ namespace my_primitive_paint
                     ChangeTheme(@".\light-theme.resx");
                 }
             }
+            
             
         }
 
@@ -590,9 +589,12 @@ namespace my_primitive_paint
         private bool isDrawing = false;
         private Point start, finish;
         private Bitmap tempBm;
+        private List<MainFigure> figureList = new List<MainFigure>();
 
         private void picture_MouseUp(object sender, MouseEventArgs e)
         {
+            
+
             if (isDrawing)
             {
                 finish = new Point(e.X, e.Y);
@@ -600,6 +602,7 @@ namespace my_primitive_paint
                 figure.MouseDraw(g, finish);
                 isDrawing = false;
                 picture.Invalidate();
+                figureList.Add(figure);
                 jsonList.Add(new InfoForJSON() { fatness = fatness, color = color, topLeft = start, bottomRight = finish, figureName = maker.ToString() });
             }
             
@@ -620,16 +623,47 @@ namespace my_primitive_paint
             }
         }
 
+        
         private void picture_MouseDown(object sender, MouseEventArgs e)
         {
-            if(cb_figures.SelectedIndex >= 0)
+            if(cmb_custom_figures.SelectedIndex >= 0)
             {
-                isDrawing = true;
-                start = new Point(e.X, e.Y);
-                figure = maker.FactoryMethod(fatness, color, start, start);
+                int index = cmb_custom_figures.SelectedIndex;
+                CustomFigure.DrawCustomFigure(index, graphics);
+                picture.Invalidate();
+            }
+            else
+            {
+                if (cb_figures.SelectedIndex >= 0)
+                {
+                    isDrawing = true;
+                    start = new Point(e.X, e.Y);
+                    figure = maker.FactoryMethod(fatness, color, start, start);
+                }
+            }
+
+            
+        }
+
+        private void cmb_custom_figures_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmb_custom_figures.SelectedIndex >= 0)
+            {
+                cb_figures.SelectedIndex = -1;
             }
             
+        }
 
+        private void btn_add_custom_figure_Click(object sender, EventArgs e)
+        {
+            if (figureList.Count <= 1)
+            {
+                MessageBox.Show("One or less figures can not be customized", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                CustomFigure.AddCustomFigure(figureList, cmb_custom_figures);
+            }
         }
     }
 }

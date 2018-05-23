@@ -52,6 +52,10 @@
             this.ts_cmb = new System.Windows.Forms.ToolStripComboBox();
             this.cmb_themes = new System.Windows.Forms.ComboBox();
             this.themes_label = new System.Windows.Forms.Label();
+            this.btn_add_custom_figure = new System.Windows.Forms.Button();
+            this.btn_delete_custom_figure = new System.Windows.Forms.Button();
+            this.cmb_custom_figures = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture)).BeginInit();
             this.ts.SuspendLayout();
@@ -276,7 +280,7 @@
             this.cmb_themes.Items.AddRange(new object[] {
             "Dark",
             "Light"});
-            this.cmb_themes.Location = new System.Drawing.Point(979, 328);
+            this.cmb_themes.Location = new System.Drawing.Point(979, 261);
             this.cmb_themes.Name = "cmb_themes";
             this.cmb_themes.Size = new System.Drawing.Size(147, 24);
             this.cmb_themes.TabIndex = 20;
@@ -286,11 +290,56 @@
             // 
             this.themes_label.AutoSize = true;
             this.themes_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.themes_label.Location = new System.Drawing.Point(974, 305);
+            this.themes_label.Location = new System.Drawing.Point(974, 238);
             this.themes_label.Name = "themes_label";
             this.themes_label.Size = new System.Drawing.Size(69, 20);
             this.themes_label.TabIndex = 21;
             this.themes_label.Text = "Themes";
+            // 
+            // btn_add_custom_figure
+            // 
+            this.btn_add_custom_figure.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btn_add_custom_figure.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_add_custom_figure.ForeColor = System.Drawing.Color.White;
+            this.btn_add_custom_figure.Location = new System.Drawing.Point(979, 432);
+            this.btn_add_custom_figure.Name = "btn_add_custom_figure";
+            this.btn_add_custom_figure.Size = new System.Drawing.Size(97, 39);
+            this.btn_add_custom_figure.TabIndex = 22;
+            this.btn_add_custom_figure.Text = "Add CF";
+            this.btn_add_custom_figure.UseVisualStyleBackColor = false;
+            this.btn_add_custom_figure.Click += new System.EventHandler(this.btn_add_custom_figure_Click);
+            // 
+            // btn_delete_custom_figure
+            // 
+            this.btn_delete_custom_figure.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btn_delete_custom_figure.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_delete_custom_figure.ForeColor = System.Drawing.Color.White;
+            this.btn_delete_custom_figure.Location = new System.Drawing.Point(979, 499);
+            this.btn_delete_custom_figure.Name = "btn_delete_custom_figure";
+            this.btn_delete_custom_figure.Size = new System.Drawing.Size(97, 42);
+            this.btn_delete_custom_figure.TabIndex = 23;
+            this.btn_delete_custom_figure.Text = "Delete CF";
+            this.btn_delete_custom_figure.UseVisualStyleBackColor = false;
+            // 
+            // cmb_custom_figures
+            // 
+            this.cmb_custom_figures.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_custom_figures.FormattingEnabled = true;
+            this.cmb_custom_figures.Location = new System.Drawing.Point(979, 356);
+            this.cmb_custom_figures.Name = "cmb_custom_figures";
+            this.cmb_custom_figures.Size = new System.Drawing.Size(148, 24);
+            this.cmb_custom_figures.TabIndex = 24;
+            this.cmb_custom_figures.SelectedIndexChanged += new System.EventHandler(this.cmb_custom_figures_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(979, 333);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(123, 20);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "Custom figures";
             // 
             // mainForm
             // 
@@ -298,6 +347,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1272, 588);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cmb_custom_figures);
+            this.Controls.Add(this.btn_delete_custom_figure);
+            this.Controls.Add(this.btn_add_custom_figure);
             this.Controls.Add(this.themes_label);
             this.Controls.Add(this.cmb_themes);
             this.Controls.Add(this.ts);
@@ -357,6 +410,10 @@
         public System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ComboBox cmb_themes;
         private System.Windows.Forms.Label themes_label;
+        private System.Windows.Forms.Button btn_add_custom_figure;
+        private System.Windows.Forms.Button btn_delete_custom_figure;
+        public System.Windows.Forms.ComboBox cmb_custom_figures;
+        private System.Windows.Forms.Label label1;
     }
 }
 

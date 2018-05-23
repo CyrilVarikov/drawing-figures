@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CircleFabric.cs" />
+    <Compile Include="CustomFigure.cs" />
     <Compile Include="EditDrawedFigures.cs">
       <SubType>Form</SubType>
     </Compile>
