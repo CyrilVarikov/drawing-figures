@@ -56,6 +56,7 @@
             this.btn_delete_custom_figure = new System.Windows.Forms.Button();
             this.cmb_custom_figures = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.checkbox_edit = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture)).BeginInit();
             this.ts.SuspendLayout();
@@ -341,12 +342,24 @@
             this.label1.TabIndex = 25;
             this.label1.Text = "Custom figures";
             // 
+            // checkbox_edit
+            // 
+            this.checkbox_edit.AutoSize = true;
+            this.checkbox_edit.Location = new System.Drawing.Point(1149, 356);
+            this.checkbox_edit.Name = "checkbox_edit";
+            this.checkbox_edit.Size = new System.Drawing.Size(73, 21);
+            this.checkbox_edit.TabIndex = 26;
+            this.checkbox_edit.Text = "Editing";
+            this.checkbox_edit.UseVisualStyleBackColor = true;
+            this.checkbox_edit.CheckedChanged += new System.EventHandler(this.checkbox_edit_CheckedChanged);
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1272, 588);
+            this.Controls.Add(this.checkbox_edit);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmb_custom_figures);
             this.Controls.Add(this.btn_delete_custom_figure);
@@ -414,6 +427,7 @@
         private System.Windows.Forms.Button btn_delete_custom_figure;
         public System.Windows.Forms.ComboBox cmb_custom_figures;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox checkbox_edit;
     }
 }
 

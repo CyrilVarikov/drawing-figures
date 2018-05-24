@@ -23,13 +23,15 @@ namespace my_primitive_paint
         {
             if(finish.X < topLeft.X || finish.Y < topLeft.Y)
             {
-                g.DrawRectangle(pen, finish.X, finish.Y, topLeft.X - finish.X, topLeft.X - finish.X);
-                width = topLeft.X - finish.X;
+                g.DrawRectangle(pen, finish.X, finish.Y, topLeft.Y - finish.Y, topLeft.Y - finish.Y);
+                width = topLeft.Y - finish.Y;
+                bottomRight = new Point(topLeft.X + width, topLeft.Y);
             }
             else
             {
-                width = finish.X - topLeft.X;
-                g.DrawRectangle(pen, topLeft.X, topLeft.Y, finish.X - topLeft.X, finish.X - topLeft.X);
+                width = finish.Y - topLeft.Y;
+                g.DrawRectangle(pen, topLeft.X, topLeft.Y, finish.Y - topLeft.Y, finish.Y - topLeft.Y);
+                bottomRight = new Point(topLeft.X + width, finish.Y);
             }
             
             g.Dispose();

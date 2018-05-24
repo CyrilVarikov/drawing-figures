@@ -221,6 +221,7 @@ namespace my_primitive_paint
         {
             graphics.Clear(Color.White);
             jsonList.Clear();
+            figureList.Clear();
             picture.Image = bmap;
         }
 
@@ -593,55 +594,87 @@ namespace my_primitive_paint
 
         private void picture_MouseUp(object sender, MouseEventArgs e)
         {
-            
 
-            if (isDrawing)
+            if (isEdit)
             {
-                finish = new Point(e.X, e.Y);
-                Graphics g = Graphics.FromImage(bmap);
-                figure.MouseDraw(g, finish);
-                isDrawing = false;
-                picture.Invalidate();
-                figureList.Add(figure);
-                jsonList.Add(new InfoForJSON() { fatness = fatness, color = color, topLeft = start, bottomRight = finish, figureName = maker.ToString() });
+                var croch = edit.PickFigure(figureList, e.Location);
+                if (croch != null)
+                {
+                    edit.ClearEdit(figureList, graphics);
+                    edit.Crochet(croch, graphics);
+                    picture.Image = bmap;
+                }
+                else
+                {
+                    edit.ClearEdit(figureList, graphics);
+                    picture.Image = bmap;
+                }
             }
+            else
+            {
+                if (isDrawing)
+                {
+                    finish = new Point(e.X, e.Y);
+                    Graphics g = Graphics.FromImage(bmap);
+                    figure.MouseDraw(g, finish);
+                    isDrawing = false;
+                    picture.Invalidate();
+                    figureList.Add(figure);
+                    jsonList.Add(new InfoForJSON() { fatness = fatness, color = color, topLeft = start, bottomRight = finish, figureName = maker.ToString() });
+                }
+            }
+            
             
         }
 
         private void picture_MouseMove(object sender, MouseEventArgs e)
         {
-            if (isDrawing)
+            if (isEdit)
             {
-                finish = new Point(e.X, e.Y);
-                tempBm = new Bitmap(bmap);
-                picture.Image = tempBm;
-                Graphics g = Graphics.FromImage(tempBm);
-                figure.MouseDraw(g, finish);
-                g.Dispose();
-                picture.Invalidate();
-                GC.Collect();
+
             }
+            else
+            {
+                if (isDrawing)
+                {
+                    finish = new Point(e.X, e.Y);
+                    tempBm = new Bitmap(bmap);
+                    picture.Image = tempBm;
+                    Graphics g = Graphics.FromImage(tempBm);
+                    figure.MouseDraw(g, finish);
+                    g.Dispose();
+                    picture.Invalidate();
+                    GC.Collect();
+                }
+            }
+            
         }
 
         
         private void picture_MouseDown(object sender, MouseEventArgs e)
         {
-            if(cmb_custom_figures.SelectedIndex >= 0)
+            if (isEdit)
             {
-                int index = cmb_custom_figures.SelectedIndex;
-                CustomFigure.DrawCustomFigure(index, graphics);
-                picture.Invalidate();
+                
             }
             else
             {
-                if (cb_figures.SelectedIndex >= 0)
+                if (cmb_custom_figures.SelectedIndex >= 0)
                 {
-                    isDrawing = true;
-                    start = new Point(e.X, e.Y);
-                    figure = maker.FactoryMethod(fatness, color, start, start);
+                    int index = cmb_custom_figures.SelectedIndex;
+                    CustomFigure.DrawCustomFigure(index, graphics);
+                    picture.Invalidate();
+                }
+                else
+                {
+                    if (cb_figures.SelectedIndex >= 0)
+                    {
+                        isDrawing = true;
+                        start = new Point(e.X, e.Y);
+                        figure = maker.FactoryMethod(fatness, color, start, start);
+                    }
                 }
             }
-
             
         }
 
@@ -650,6 +683,29 @@ namespace my_primitive_paint
             if (cmb_custom_figures.SelectedIndex >= 0)
             {
                 cb_figures.SelectedIndex = -1;
+            }
+            
+        }
+
+        private bool isEdit = false;
+        private Editing edit = null;
+
+        private void checkbox_edit_CheckedChanged(object sender, EventArgs e)
+        {
+            if(isEdit == false)
+            {
+                if(edit == null)
+                {
+                    edit = new Editing();
+                }
+                isEdit = true;
+            }
+            else
+            {
+                isEdit = false;
+                edit.ClearEdit(figureList, graphics);
+                picture.Image = bmap;
+
             }
             
         }

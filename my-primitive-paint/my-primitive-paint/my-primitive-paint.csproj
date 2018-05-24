@@ -57,6 +57,7 @@
     <Compile Include="EditDrawedFigures.Designer.cs">
       <DependentUpon>EditDrawedFigures.cs</DependentUpon>
     </Compile>
+    <Compile Include="Editing.cs" />
     <Compile Include="EllipseFabric.cs" />
     <Compile Include="Fabric.cs" />
     <Compile Include="figures\Circle.cs" />

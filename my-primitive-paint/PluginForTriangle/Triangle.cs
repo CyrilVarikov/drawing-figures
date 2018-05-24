@@ -27,6 +27,7 @@ namespace PluginForTriangle
 
         public override void MouseDraw(Graphics g, Point finish)
         {
+            bottomRight = new Point(finish.X, finish.Y);
             Point[] points =
             {
                 topLeft,
@@ -34,9 +35,9 @@ namespace PluginForTriangle
                 finish
             };
 
-            pointsT = points;
-
+            pointsT = points;       
             g.DrawPolygon(pen, pointsT);
+            
         }
     }
        

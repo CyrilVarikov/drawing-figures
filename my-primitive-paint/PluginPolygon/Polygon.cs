@@ -41,6 +41,7 @@ namespace PluginPolygon
             pointsT = points;
 
             g.DrawPolygon(pen, pointsT);
+            bottomRight = finish;
         }
 
     }
