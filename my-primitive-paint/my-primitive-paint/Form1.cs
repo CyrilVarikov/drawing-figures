@@ -56,7 +56,8 @@ namespace my_primitive_paint
                 MessageBox.Show(message, title_mess, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             configIsChanged = false;
-                
+
+            CustomFigure.OpenCustomFigures(cmb_custom_figures, allFabrics);
 
         }
 
@@ -185,6 +186,7 @@ namespace my_primitive_paint
         private const int fatness = 4;
         private Color color = Color.Aquamarine;
         private List<InfoForJSON> jsonList = new List<InfoForJSON>();
+        private List<Fabric> currentFabrics = new List<Fabric>();
 
         private void draw_Click(object sender, EventArgs e)
         {    
@@ -197,11 +199,12 @@ namespace my_primitive_paint
                 figure = maker.FactoryMethod(fatness, color, topLeft, bottomRight);
 
                 figureList.Add(figure);
+                //figuresExs.Add(figure);
 
                 figure.Draw(graphics);
                 jsonList.Add(new InfoForJSON() { fatness = fatness, color = color, topLeft = topLeft, bottomRight = bottomRight, figureName = maker.ToString() });
 
-
+                currentFabrics.Add(maker);
                 picture.Image = bmap;
             }
             else
@@ -223,6 +226,7 @@ namespace my_primitive_paint
             jsonList.Clear();
             figureList.Clear();
             picture.Image = bmap;
+            currentFabrics.Clear();
         }
 
 
@@ -323,7 +327,7 @@ namespace my_primitive_paint
             }
         }
 
-        List<Fabric> allFabrics = new List<Fabric>()
+        public List<Fabric> allFabrics = new List<Fabric>()
         {
             new RectangleFabric(),
             new CircleFabric(),
@@ -490,6 +494,8 @@ namespace my_primitive_paint
                 resx.AddResource("saveToolStripMenuItem", colors);
                 resx.AddResource("editToolStripMenuItem", colors);
                 resx.AddResource("ts", colorsStrip);
+                resx.AddResource("btn_add_custom_figure", buttColors);
+                resx.AddResource("btn_delete_custom_figure", buttColors);
             }*/
 
             try
@@ -589,17 +595,17 @@ namespace my_primitive_paint
                 }
             }
 
-            /*if (customFigureAdded)
+            if (customFigureIsChange)
             {
                 if (CustomFigure.savedFigures.Count > 0)
                 {
                     CustomFigure.SavingCustomFigures();
                 }
-            }*/
+            }
             
         }
 
-        private bool customFigureAdded = false;
+        private bool customFigureIsChange = false;
         private bool isDrawing = false;
         private Point start, finish;
         private Bitmap tempBm;
@@ -610,18 +616,18 @@ namespace my_primitive_paint
 
             if (isEdit)
             {
-                var croch = edit.PickFigure(figureList, e.Location);
+                /*//var croch = edit.PickFigure(figuresExs, e.Location);
                 if (croch != null)
                 {
-                    edit.ClearEdit(figureList, graphics);
-                    edit.Crochet(croch, graphics);
+                  //  edit.ClearEdit(figuresExs, graphics);
+                    //edit.Crochet(croch, graphics);
                     picture.Image = bmap;
                 }
                 else
                 {
-                    edit.ClearEdit(figureList, graphics);
+                    //edit.ClearEdit(figuresExs, graphics);
                     picture.Image = bmap;
-                }
+                }*/
             }
             else
             {
@@ -633,6 +639,7 @@ namespace my_primitive_paint
                     isDrawing = false;
                     picture.Invalidate();
                     figureList.Add(figure);
+                    //figuresExs.Add(figure);
                     jsonList.Add(new InfoForJSON() { fatness = fatness, color = color, topLeft = start, bottomRight = finish, figureName = maker.ToString() });
                 }
             }
@@ -663,7 +670,8 @@ namespace my_primitive_paint
             
         }
 
-        
+        //
+        private List<MainFigure> figuresExs = new List<MainFigure>();
         private void picture_MouseDown(object sender, MouseEventArgs e)
         {
             if (isEdit)
@@ -674,9 +682,12 @@ namespace my_primitive_paint
             {
                 if (cmb_custom_figures.SelectedIndex >= 0)
                 {
+                    
                     int index = cmb_custom_figures.SelectedIndex;
                     CustomFigure.DrawCustomFigure(index, graphics, e.Location);
+                    
                     picture.Invalidate();
+                    picture.Image = bmap;
                 }
                 else
                 {
@@ -685,6 +696,8 @@ namespace my_primitive_paint
                         isDrawing = true;
                         start = new Point(e.X, e.Y);
                         figure = maker.FactoryMethod(fatness, color, start, start);
+                        currentFabrics.Add(maker);
+
                     }
                 }
             }
@@ -727,8 +740,9 @@ namespace my_primitive_paint
         {
             if(cmb_custom_figures.SelectedIndex >= 0)
             {
-                CustomFigure.DeleteCustomFigure(cmb_custom_figures.SelectedIndex);
-                cmb_custom_figures.Items.RemoveAt(cmb_custom_figures.SelectedIndex);
+                customFigureIsChange = true;
+                CustomFigure.DeleteCustomFigure(cmb_custom_figures.SelectedIndex, cmb_custom_figures);
+                //cmb_custom_figures.Items.RemoveAt(cmb_custom_figures.SelectedIndex);
             }
             else
             {
@@ -744,8 +758,8 @@ namespace my_primitive_paint
             }
             else
             {
-                customFigureAdded = true;
-                CustomFigure.AddCustomFigure(figureList, cmb_custom_figures);
+                customFigureIsChange = true;
+                CustomFigure.AddCustomFigure(currentFabrics, figureList, cmb_custom_figures);
             }
         }
     }

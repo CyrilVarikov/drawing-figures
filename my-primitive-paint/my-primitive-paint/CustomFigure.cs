@@ -13,13 +13,15 @@ namespace my_primitive_paint
     public class CustomFigure
     {
         public static List<List<MainFigure>> savedFigures = new List<List<MainFigure>>();
-        
+        private static List<List<Fabric>> fabrics = new List<List<Fabric>>();
 
-        public static void AddCustomFigure(List<MainFigure> figures, ComboBox combobox)
+        public static void AddCustomFigure(List<Fabric> currFabics, List<MainFigure> figures, ComboBox combobox)
         {
             List<MainFigure> temp = new List<MainFigure>(figures);
+            List<Fabric> tempCurrFab = new List<Fabric>(currFabics);
             combobox.Items.Add("CustomFigures" + savedFigures.Count.ToString());
             savedFigures.Add(temp);
+            fabrics.Add(tempCurrFab);
         }
 
         private static MainFigure GetBiggestFigure(List<MainFigure> figures)
@@ -96,16 +98,11 @@ namespace my_primitive_paint
                 new Point(newBottomRightX, newBottomRightY));
         }
 
-        public static List<MainFigure> DrawCustomFigure(int index, Graphics g, Point possition)
+        public static void DrawCustomFigure(int index, Graphics g, Point possition)
         {
-            
-
+         
             MainFigure biggestFigure = GetBiggestFigure(savedFigures[index]);
-            //biggestFigure = GetFigure(possition, biggestFigure);
             Point oldCenter = GetCenterOfFigure(biggestFigure);
-            //biggestFigure.Draw(g);
-
-            //savedFigures[index].Remove(biggestFigure);
 
             int offsetX = 0;
             int offsetY = 0;
@@ -123,39 +120,126 @@ namespace my_primitive_paint
                 tempFigure.Draw(g);
                 
             }
-            return savedFigures[index];
         }
 
-        public static void DeleteCustomFigure(int index)
+        public static void DeleteCustomFigure(int index, ComboBox cmb)
         {
             savedFigures.RemoveAt(index);
+            fabrics.RemoveAt(index);
+            cmb.Items.Clear();
+            for(int i = 0; i < savedFigures.Count; i++)
+            {
+                cmb.Items.Add("CustomFigures" + i.ToString());
+
+            }
         }
 
+        private static List<InfoForJSON> jsonList = new List<InfoForJSON>();
+        private static List<int> countFigures = new List<int>();
         public static void SavingCustomFigures()
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            /*SaveFileDialog saveFileDialog = new SaveFileDialog();
 
             saveFileDialog.InitialDirectory = ".";
             saveFileDialog.RestoreDirectory = true;
             saveFileDialog.FileName = "CustomFigures";
-            saveFileDialog.DefaultExt = ".json";
+            saveFileDialog.DefaultExt = ".json";*/
 
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            try
             {
-                using (StreamWriter stream = new StreamWriter(saveFileDialog.OpenFile()))
+                using (StreamWriter stream = new StreamWriter(@"CustomFigures.json", false))
                 {
+                    int i = 0;
+                    int j = 0;
+                    Fabric fabric;
+                    foreach (var figures in savedFigures)
+                    {
+                        j = 0;
+                        countFigures.Add(figures.Count);
+                        foreach (var figure in figures)
+                        {
+                            fabric = fabrics[i][j];
+                            jsonList.Add(new InfoForJSON() { fatness = figure.pen.Width, color = figure.pen.Color, topLeft = figure.topLeft, bottomRight = figure.bottomRight, figureName = fabric.ToString() });
+                            j++;
+                        }
+                        i++;
+                    }
                     JsonSerializer serializer = new JsonSerializer();
+
                     using (JsonWriter writer = new JsonTextWriter(stream))
                     {
-                        for (int i = 0; i < savedFigures.Count; i++)
+                        serializer.Serialize(writer, countFigures);
+                        stream.Write('\n');
+                        for (i = 0; i < jsonList.Count; i++)
                         {
-                            serializer.Serialize(writer, savedFigures[i]);
-                            if (i != savedFigures.Count - 1)
+                            serializer.Serialize(writer, jsonList[i]);
+                            if (i != jsonList.Count - 1)
                                 stream.Write('\n');
                         }
                     }
                 };
+            }catch(Exception e)
+            {
+                MessageBox.Show(e.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            
+            
+        }
+
+        public static void OpenCustomFigures(ComboBox combobox, List<Fabric> exsistingFabric) 
+        {
+            try
+            {
+                using (StreamReader stream = new StreamReader(@"CustomFigures.json"))
+                {
+                    if (stream.Peek() != -1)
+                    {
+                        MainFigure figure;
+                        List<MainFigure> figures = new List<MainFigure>();
+                        List<Fabric> fabrics = new List<Fabric>();
+                        string data = stream.ReadToEnd();
+                        string[] dataArray = data.Split('\n');
+                        List<int> countFigures = JsonConvert.DeserializeObject<List<int>>(dataArray[0]);
+                        int j = 1;
+                        foreach (var count in countFigures)
+                        {
+
+                            for (int i = j; i < count + j; i++)
+                            {
+                                InfoForJSON jSON = JsonConvert.DeserializeObject<InfoForJSON>(dataArray[i]);
+                                foreach (Fabric fab in exsistingFabric)
+                                {
+                                    if (jSON.figureName == fab.ToString())
+                                    {
+                                        jsonList.Add(jSON);
+                                        figure = fab.FactoryMethod(jSON.fatness, jSON.color, jSON.topLeft, jSON.bottomRight);
+                                        figures.Add(figure);
+                                        fabrics.Add(fab);
+                                        break;
+                                    }
+                                }
+                            }
+                            AddCustomFigure(fabrics, figures, combobox);
+                            fabrics.Clear();
+                            figures.Clear();
+                            j = count + j;
+
+                        }
+                    } 
+                    
+                    
+                    
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something wrong...", "Problems", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //continue;
+            }
+
+            jsonList.Clear();
+            
         }
     }
 }

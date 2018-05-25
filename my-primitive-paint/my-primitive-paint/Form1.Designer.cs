@@ -55,7 +55,7 @@
             this.btn_add_custom_figure = new System.Windows.Forms.Button();
             this.btn_delete_custom_figure = new System.Windows.Forms.Button();
             this.cmb_custom_figures = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_custom_f = new System.Windows.Forms.Label();
             this.checkbox_edit = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture)).BeginInit();
@@ -68,7 +68,7 @@
             this.drawButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.drawButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.drawButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.drawButton.Location = new System.Drawing.Point(1132, 499);
+            this.drawButton.Location = new System.Drawing.Point(1154, 499);
             this.drawButton.Name = "drawButton";
             this.drawButton.Size = new System.Drawing.Size(106, 42);
             this.drawButton.TabIndex = 1;
@@ -158,7 +158,7 @@
             this.btn_clear.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btn_clear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_clear.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_clear.Location = new System.Drawing.Point(1132, 432);
+            this.btn_clear.Location = new System.Drawing.Point(1154, 432);
             this.btn_clear.Name = "btn_clear";
             this.btn_clear.Size = new System.Drawing.Size(106, 39);
             this.btn_clear.TabIndex = 16;
@@ -304,7 +304,7 @@
             this.btn_add_custom_figure.ForeColor = System.Drawing.Color.White;
             this.btn_add_custom_figure.Location = new System.Drawing.Point(979, 432);
             this.btn_add_custom_figure.Name = "btn_add_custom_figure";
-            this.btn_add_custom_figure.Size = new System.Drawing.Size(97, 39);
+            this.btn_add_custom_figure.Size = new System.Drawing.Size(136, 39);
             this.btn_add_custom_figure.TabIndex = 22;
             this.btn_add_custom_figure.Text = "Add CF";
             this.btn_add_custom_figure.UseVisualStyleBackColor = false;
@@ -317,7 +317,7 @@
             this.btn_delete_custom_figure.ForeColor = System.Drawing.Color.White;
             this.btn_delete_custom_figure.Location = new System.Drawing.Point(979, 499);
             this.btn_delete_custom_figure.Name = "btn_delete_custom_figure";
-            this.btn_delete_custom_figure.Size = new System.Drawing.Size(97, 42);
+            this.btn_delete_custom_figure.Size = new System.Drawing.Size(136, 42);
             this.btn_delete_custom_figure.TabIndex = 23;
             this.btn_delete_custom_figure.Text = "Delete CF";
             this.btn_delete_custom_figure.UseVisualStyleBackColor = false;
@@ -333,19 +333,20 @@
             this.cmb_custom_figures.TabIndex = 24;
             this.cmb_custom_figures.SelectedIndexChanged += new System.EventHandler(this.cmb_custom_figures_SelectedIndexChanged);
             // 
-            // label1
+            // lbl_custom_f
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(979, 333);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 20);
-            this.label1.TabIndex = 25;
-            this.label1.Text = "Custom figures";
+            this.lbl_custom_f.AutoSize = true;
+            this.lbl_custom_f.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_custom_f.Location = new System.Drawing.Point(979, 333);
+            this.lbl_custom_f.Name = "lbl_custom_f";
+            this.lbl_custom_f.Size = new System.Drawing.Size(123, 20);
+            this.lbl_custom_f.TabIndex = 25;
+            this.lbl_custom_f.Text = "Custom figures";
             // 
             // checkbox_edit
             // 
             this.checkbox_edit.AutoSize = true;
+            this.checkbox_edit.Enabled = false;
             this.checkbox_edit.Location = new System.Drawing.Point(1149, 356);
             this.checkbox_edit.Name = "checkbox_edit";
             this.checkbox_edit.Size = new System.Drawing.Size(73, 21);
@@ -361,7 +362,7 @@
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1272, 588);
             this.Controls.Add(this.checkbox_edit);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbl_custom_f);
             this.Controls.Add(this.cmb_custom_figures);
             this.Controls.Add(this.btn_delete_custom_figure);
             this.Controls.Add(this.btn_add_custom_figure);
@@ -427,7 +428,7 @@
         private System.Windows.Forms.Button btn_add_custom_figure;
         private System.Windows.Forms.Button btn_delete_custom_figure;
         public System.Windows.Forms.ComboBox cmb_custom_figures;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_custom_f;
         private System.Windows.Forms.CheckBox checkbox_edit;
     }
 }

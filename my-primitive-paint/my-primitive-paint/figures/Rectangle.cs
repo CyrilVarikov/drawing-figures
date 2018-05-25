@@ -13,17 +13,17 @@ namespace my_primitive_paint
 
         public override void MouseDraw(Graphics g, Point finish)
         {
-            if (finish.X < topLeft.X || finish.Y < topLeft.Y)
+            /*if (finish.X < topLeft.X || finish.Y < topLeft.Y)
             {
                 g.DrawRectangle(pen, finish.X, finish.Y, topLeft.X - finish.X, topLeft.Y - finish.Y);
                 bottomRight = topLeft;
                 topLeft = finish;
             }
             else
-            {
-                g.DrawRectangle(pen, topLeft.X, topLeft.Y, finish.X - topLeft.X, finish.Y - topLeft.Y);
-                bottomRight = finish;
-            }
+            {*/
+            g.DrawRectangle(pen, topLeft.X, topLeft.Y, finish.X - topLeft.X, finish.Y - topLeft.Y);
+            bottomRight = finish;
+           // }
             
             g.Dispose();
         }

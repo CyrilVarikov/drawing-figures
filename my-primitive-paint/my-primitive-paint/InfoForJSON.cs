@@ -5,7 +5,7 @@ namespace my_primitive_paint
 {
     public class InfoForJSON
     {
-        public int fatness;
+        public float fatness;
         public Color color;
         public Point topLeft;
         public Point bottomRight;

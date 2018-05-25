@@ -126,6 +126,12 @@
   <data name="btn_clear" xml:space="preserve">
     <value>Очистить</value>
   </data>
+  <data name="btn_add_custom_figure" xml:space="preserve">
+    <value>Добавить ПФ</value>
+  </data>
+  <data name="btn_delete_custom_figure" xml:space="preserve">
+    <value>Удалить ПФ</value>
+  </data>
   <data name="fileToolStripMenuItem" xml:space="preserve">
     <value>Файл</value>
   </data>
@@ -155,6 +161,9 @@
   </data>
   <data name="themes_label" xml:space="preserve">
     <value>Темы</value>
+  </data>
+  <data name="lbl_custom_f" xml:space="preserve">
+    <value>Пользовательские фигуры</value>
   </data>
   <data name="message" xml:space="preserve">
     <value>Что-то не так...</value>
