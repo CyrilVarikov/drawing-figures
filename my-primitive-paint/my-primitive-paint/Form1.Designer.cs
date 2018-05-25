@@ -321,6 +321,7 @@
             this.btn_delete_custom_figure.TabIndex = 23;
             this.btn_delete_custom_figure.Text = "Delete CF";
             this.btn_delete_custom_figure.UseVisualStyleBackColor = false;
+            this.btn_delete_custom_figure.Click += new System.EventHandler(this.btn_delete_custom_figure_Click);
             // 
             // cmb_custom_figures
             // 

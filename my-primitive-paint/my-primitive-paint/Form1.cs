@@ -566,6 +566,7 @@ namespace my_primitive_paint
 
         private void mainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+
             if (configIsChanged)
             {
                 DialogResult result = MessageBox.Show(saveMsg, saveMsg_title,
@@ -582,11 +583,23 @@ namespace my_primitive_paint
                                             new XElement("language", ts_cmb.SelectedIndex),
                                             new XElement("theme", currentTheme))));
                     xdoc.Save("configuration.xml");
+
+                    
+
                 }
             }
+
+            /*if (customFigureAdded)
+            {
+                if (CustomFigure.savedFigures.Count > 0)
+                {
+                    CustomFigure.SavingCustomFigures();
+                }
+            }*/
             
         }
 
+        private bool customFigureAdded = false;
         private bool isDrawing = false;
         private Point start, finish;
         private Bitmap tempBm;
@@ -662,7 +675,7 @@ namespace my_primitive_paint
                 if (cmb_custom_figures.SelectedIndex >= 0)
                 {
                     int index = cmb_custom_figures.SelectedIndex;
-                    CustomFigure.DrawCustomFigure(index, graphics);
+                    CustomFigure.DrawCustomFigure(index, graphics, e.Location);
                     picture.Invalidate();
                 }
                 else
@@ -710,6 +723,19 @@ namespace my_primitive_paint
             
         }
 
+        private void btn_delete_custom_figure_Click(object sender, EventArgs e)
+        {
+            if(cmb_custom_figures.SelectedIndex >= 0)
+            {
+                CustomFigure.DeleteCustomFigure(cmb_custom_figures.SelectedIndex);
+                cmb_custom_figures.Items.RemoveAt(cmb_custom_figures.SelectedIndex);
+            }
+            else
+            {
+                MessageBox.Show("Please, pick any custom figure in the combobox", "Woops...", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
         private void btn_add_custom_figure_Click(object sender, EventArgs e)
         {
             if (figureList.Count <= 1)
@@ -718,6 +744,7 @@ namespace my_primitive_paint
             }
             else
             {
+                customFigureAdded = true;
                 CustomFigure.AddCustomFigure(figureList, cmb_custom_figures);
             }
         }
