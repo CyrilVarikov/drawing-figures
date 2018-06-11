@@ -597,7 +597,7 @@ namespace my_primitive_paint
 
             if (customFigureIsChange)
             {
-                if (CustomFigure.savedFigures.Count > 0)
+                if (CustomFigure.savedFigures.Count >= 0)
                 {
                     CustomFigure.SavingCustomFigures();
                 }
@@ -684,8 +684,14 @@ namespace my_primitive_paint
                 {
                     
                     int index = cmb_custom_figures.SelectedIndex;
-                    CustomFigure.DrawCustomFigure(index, graphics, e.Location);
-                    
+                    figuresExs = new List<MainFigure>(CustomFigure.DrawCustomFigure(index, graphics, e.Location));
+                    int i = 0;
+                    foreach(var figure in figuresExs)
+                    {
+                        jsonList.Add(new InfoForJSON() { fatness = figure.fatness, color = figure.color, topLeft = figure.topLeft, bottomRight = figure.bottomRight, figureName = CustomFigure.fabrics[index][i].ToString() });
+                        i++;
+                    }
+
                     picture.Invalidate();
                     picture.Image = bmap;
                 }

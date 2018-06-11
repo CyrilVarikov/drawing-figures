@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace my_primitive_paint
 {
-    public class CustomFigure
+    public static class CustomFigure
     {
         public static List<List<MainFigure>> savedFigures = new List<List<MainFigure>>();
-        private static List<List<Fabric>> fabrics = new List<List<Fabric>>();
+        public static List<List<Fabric>> fabrics = new List<List<Fabric>>();
 
         public static void AddCustomFigure(List<Fabric> currFabics, List<MainFigure> figures, ComboBox combobox)
         {
@@ -98,11 +98,13 @@ namespace my_primitive_paint
                 new Point(newBottomRightX, newBottomRightY));
         }
 
-        public static void DrawCustomFigure(int index, Graphics g, Point possition)
+        public static List<MainFigure> DrawCustomFigure(int index, Graphics g, Point possition)
         {
-         
+
             MainFigure biggestFigure = GetBiggestFigure(savedFigures[index]);
             Point oldCenter = GetCenterOfFigure(biggestFigure);
+
+            List<MainFigure> temps = new List<MainFigure>();
 
             int offsetX = 0;
             int offsetY = 0;
@@ -118,8 +120,10 @@ namespace my_primitive_paint
 
                 tempFigure = GetFigure(newCenter, figure);
                 tempFigure.Draw(g);
-                
+                temps.Add(tempFigure);
             }
+
+            return temps;
         }
 
         public static void DeleteCustomFigure(int index, ComboBox cmb)

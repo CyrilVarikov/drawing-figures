@@ -1,6 +1,6 @@
-{"fatness":4,"color":"Aquamarine","topLeft":"344, 98","bottomRight":"499, 196","figureName":"my_primitive_paint.RectangleFabric"}
-{"fatness":4,"color":"Aquamarine","topLeft":"541, 142","bottomRight":"625, 197","figureName":"my_primitive_paint.CircleFabric"}
-{"fatness":4,"color":"Aquamarine","topLeft":"204, 101","bottomRight":"287, 165","figureName":"my_primitive_paint.SquareFabric"}
-{"fatness":4,"color":"Aquamarine","topLeft":"238, 224","bottomRight":"423, 277","figureName":"my_primitive_paint.EllipseFabric"}
-{"fatness":4,"color":"Aquamarine","topLeft":"526, 62","bottomRight":"639, 119","figureName":"PluginForTriangle.TriangleFabric"}
-{"fatness":4,"color":"Aquamarine","topLeft":"453, 273","bottomRight":"404, 400","figureName":"PluginPolygon.PolygonFabric"}
+{"fatness":3.0,"color":"Aquamarine","topLeft":"388, 173","bottomRight":"594, 285","figureName":"my_primitive_paint.RectangleFabric"}
+{"fatness":3.0,"color":"Aquamarine","topLeft":"442, 160","bottomRight":"552, 270","figureName":"my_primitive_paint.CircleFabric"}
+{"fatness":3.0,"color":"Aquamarine","topLeft":"164, 124","bottomRight":"370, 236","figureName":"my_primitive_paint.RectangleFabric"}
+{"fatness":3.0,"color":"Aquamarine","topLeft":"218, 111","bottomRight":"328, 221","figureName":"my_primitive_paint.CircleFabric"}
+{"fatness":3.0,"color":"Aquamarine","topLeft":"105, 241","bottomRight":"311, 353","figureName":"my_primitive_paint.RectangleFabric"}
+{"fatness":3.0,"color":"Aquamarine","topLeft":"159, 228","bottomRight":"269, 338","figureName":"my_primitive_paint.CircleFabric"}

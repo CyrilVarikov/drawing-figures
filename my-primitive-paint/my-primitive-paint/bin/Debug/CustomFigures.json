@@ -1,10 +1,3 @@
-[5,2,2]
-{"fatness":4.0,"color":"Aquamarine","topLeft":"208, 60","bottomRight":"320, 144","figureName":"my_primitive_paint.RectangleFabric"}
-{"fatness":4.0,"color":"Aquamarine","topLeft":"287, 126","bottomRight":"287, 126","figureName":"my_primitive_paint.RectangleFabric"}
-{"fatness":4.0,"color":"Aquamarine","topLeft":"371, 153","bottomRight":"372, 153","figureName":"my_primitive_paint.RectangleFabric"}
-{"fatness":4.0,"color":"Aquamarine","topLeft":"367, 155","bottomRight":"367, 155","figureName":"my_primitive_paint.RectangleFabric"}
-{"fatness":4.0,"color":"Aquamarine","topLeft":"12, 115","bottomRight":"186, 189","figureName":"my_primitive_paint.RectangleFabric"}
-{"fatness":4.0,"color":"Aquamarine","topLeft":"398, 131","bottomRight":"633, 280","figureName":"my_primitive_paint.RectangleFabric"}
-{"fatness":4.0,"color":"Aquamarine","topLeft":"272, 183","bottomRight":"352, 273","figureName":"my_primitive_paint.RectangleFabric"}
-{"fatness":4.0,"color":"Aquamarine","topLeft":"521, 193","bottomRight":"437, 109","figureName":"my_primitive_paint.CircleFabric"}
-{"fatness":4.0,"color":"Aquamarine","topLeft":"470, 145","bottomRight":"440, 115","figureName":"my_primitive_paint.CircleFabric"}
+[2]
+{"fatness":4.0,"color":"Aquamarine","topLeft":"309, 154","bottomRight":"515, 266","figureName":"my_primitive_paint.RectangleFabric"}
+{"fatness":4.0,"color":"Aquamarine","topLeft":"363, 141","bottomRight":"474, 252","figureName":"my_primitive_paint.CircleFabric"}
